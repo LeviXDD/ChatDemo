@@ -9,7 +9,7 @@
 #import "BaseViewController.h"
 //#import "UINavigationController+FDFullscreenPopGesture.h"
 #import "UIImage+Extension.h"
-#import "RTRootNavigationController.h"
+//#import "RTRootNavigationController.h"
 //#import "UMMobClick/MobClick.h"
 #define BarImageWidth  20
 #define BarImageHight  22
@@ -37,7 +37,7 @@
     //设置导航栏文字的主题
     [self setNavigationBar];
     self.view.backgroundColor = [UIColor whiteColor];
-    self.rt_disableInteractivePop = NO;
+//    self.rt_disableInteractivePop = NO;
 }
 
 //-(void)setNavigationBar{
@@ -121,21 +121,21 @@
 //     }];
 //}
 
--(void)removeControllers:(NSArray<NSString*> *)controllers{
-    for (RTContainerController *controller in self.rt_navigationController.viewControllers) {
-        NSString* vcClassName = NSStringFromClass([controller.contentViewController class]);
-        
-        if ([controllers containsObject:vcClassName]) {
-            [self.rt_navigationController removeViewController:controller.contentViewController];
-        }
-    }
-}
-
--(void)pushViewController:(UIViewController *)controller animated:(BOOL)animated complete:(void (^)(BOOL finished))block{
-    [self.rt_navigationController pushViewController:controller animated:animated complete:^(BOOL finished) {
-        block(finished);
-    }];
-}
+//-(void)removeControllers:(NSArray<NSString*> *)controllers{
+//    for (RTContainerController *controller in self.rt_navigationController.viewControllers) {
+//        NSString* vcClassName = NSStringFromClass([controller.contentViewController class]);
+//
+//        if ([controllers containsObject:vcClassName]) {
+//            [self.rt_navigationController removeViewController:controller.contentViewController];
+//        }
+//    }
+//}
+//
+//-(void)pushViewController:(UIViewController *)controller animated:(BOOL)animated complete:(void (^)(BOOL finished))block{
+//    [self.rt_navigationController pushViewController:controller animated:animated complete:^(BOOL finished) {
+//        block(finished);
+//    }];
+//}
 
 -(void)backAction:(id)sender
 {

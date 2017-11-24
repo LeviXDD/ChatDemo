@@ -1,4 +1,4 @@
-//
+
 //  BaseViewController.h
 //  Channel
 //
@@ -27,7 +27,7 @@
  */
 @property(nonatomic, assign) BOOL isShowNavigationgBar;  //默认YES
 
--(void)removeControllers:(NSArray<NSString*>*)controllers;
+//-(void)removeControllers:(NSArray<NSString*>*)controllers;
 
--(void)pushViewController:(UIViewController*)controller animated:(BOOL)animated complete:(void (^)(BOOL finished))block;
+//-(void)pushViewController:(UIViewController*)controller animated:(BOOL)animated complete:(void (^)(BOOL finished))block;
 @end

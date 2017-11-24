@@ -20,7 +20,7 @@
 		30724DA51FC7C12B0084180A /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = 30724DA41FC7C12B0084180A /* Podfile */; };
 		30724DA81FC7C1C60084180A /* PDBaseChatMessageCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 30724DA61FC7C1C60084180A /* PDBaseChatMessageCell.m */; };
 		30724DAB1FC7C1D60084180A /* CYLTabBarControllerConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = 30724DA91FC7C1D50084180A /* CYLTabBarControllerConfig.m */; };
-		30724DAE1FC7C2320084180A /* HTChatListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 30724DAD1FC7C2320084180A /* HTChatListViewController.m */; };
+		30724DAE1FC7C2320084180A /* HTChatViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 30724DAD1FC7C2320084180A /* HTChatViewController.m */; };
 		30724DB11FC7C2470084180A /* HTProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 30724DB01FC7C2470084180A /* HTProfileViewController.m */; };
 		30724DB41FC7C26D0084180A /* BaseNavgationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 30724DB31FC7C26D0084180A /* BaseNavgationViewController.m */; };
 		30724DCC1FC7C5460084180A /* PDNetworkStatusManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 30724DBB1FC7C5460084180A /* PDNetworkStatusManager.m */; };
@@ -73,6 +73,9 @@
 		30724E571FC7E91A0084180A /* NSString+Category.m in Sources */ = {isa = PBXBuildFile; fileRef = 30724E561FC7E91A0084180A /* NSString+Category.m */; };
 		30724E5A1FC7E9640084180A /* UILabel+fastLab.m in Sources */ = {isa = PBXBuildFile; fileRef = 30724E581FC7E9640084180A /* UILabel+fastLab.m */; };
 		30724E5D1FC7EA3A0084180A /* UITextView+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 30724E5B1FC7EA3A0084180A /* UITextView+Extension.m */; };
+		30724E651FC7F0090084180A /* HTChatListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 30724E641FC7F0090084180A /* HTChatListViewController.m */; };
+		30724E681FC801880084180A /* PDSendMessageHelper.mm in Sources */ = {isa = PBXBuildFile; fileRef = 30724E661FC801880084180A /* PDSendMessageHelper.mm */; };
+		30724E6C1FC805150084180A /* HTMesseageSender.m in Sources */ = {isa = PBXBuildFile; fileRef = 30724E6B1FC805150084180A /* HTMesseageSender.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -118,8 +121,8 @@
 		30724DA71FC7C1C60084180A /* PDBaseChatMessageCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PDBaseChatMessageCell.h; sourceTree = "<group>"; };
 		30724DA91FC7C1D50084180A /* CYLTabBarControllerConfig.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CYLTabBarControllerConfig.m; sourceTree = "<group>"; };
 		30724DAA1FC7C1D50084180A /* CYLTabBarControllerConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CYLTabBarControllerConfig.h; sourceTree = "<group>"; };
-		30724DAC1FC7C2320084180A /* HTChatListViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HTChatListViewController.h; sourceTree = "<group>"; };
-		30724DAD1FC7C2320084180A /* HTChatListViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HTChatListViewController.m; sourceTree = "<group>"; };
+		30724DAC1FC7C2320084180A /* HTChatViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HTChatViewController.h; sourceTree = "<group>"; };
+		30724DAD1FC7C2320084180A /* HTChatViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HTChatViewController.m; sourceTree = "<group>"; };
 		30724DAF1FC7C2470084180A /* HTProfileViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HTProfileViewController.h; sourceTree = "<group>"; };
 		30724DB01FC7C2470084180A /* HTProfileViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HTProfileViewController.m; sourceTree = "<group>"; };
 		30724DB21FC7C26D0084180A /* BaseNavgationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseNavgationViewController.h; sourceTree = "<group>"; };
@@ -225,6 +228,12 @@
 		30724E591FC7E9640084180A /* UILabel+fastLab.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UILabel+fastLab.h"; sourceTree = "<group>"; };
 		30724E5B1FC7EA3A0084180A /* UITextView+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITextView+Extension.m"; sourceTree = "<group>"; };
 		30724E5C1FC7EA3A0084180A /* UITextView+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITextView+Extension.h"; sourceTree = "<group>"; };
+		30724E631FC7F0090084180A /* HTChatListViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HTChatListViewController.h; sourceTree = "<group>"; };
+		30724E641FC7F0090084180A /* HTChatListViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HTChatListViewController.m; sourceTree = "<group>"; };
+		30724E661FC801880084180A /* PDSendMessageHelper.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = PDSendMessageHelper.mm; sourceTree = "<group>"; };
+		30724E671FC801880084180A /* PDSendMessageHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PDSendMessageHelper.h; sourceTree = "<group>"; };
+		30724E6A1FC805150084180A /* HTMesseageSender.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HTMesseageSender.h; sourceTree = "<group>"; };
+		30724E6B1FC805150084180A /* HTMesseageSender.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HTMesseageSender.m; sourceTree = "<group>"; };
 		C6D8B989D56296B5427A372A /* libPods-ChannelChatDemo.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ChannelChatDemo.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		FF2A6E4548A9F64F6226A7C4 /* Pods-ChannelChatDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ChannelChatDemo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ChannelChatDemo/Pods-ChannelChatDemo.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -281,6 +290,7 @@
 		30724D641FC7BFC90084180A /* ChannelChatDemo */ = {
 			isa = PBXGroup;
 			children = (
+				30724E691FC804FF0084180A /* NetworkManager */,
 				30724DF31FC7C9C10084180A /* Lib */,
 				30724DB71FC7C5460084180A /* Tools */,
 				30724D9A1FC7C1150084180A /* BaseClasses */,
@@ -321,10 +331,12 @@
 			children = (
 				30724DAA1FC7C1D50084180A /* CYLTabBarControllerConfig.h */,
 				30724DA91FC7C1D50084180A /* CYLTabBarControllerConfig.m */,
-				30724DAC1FC7C2320084180A /* HTChatListViewController.h */,
-				30724DAD1FC7C2320084180A /* HTChatListViewController.m */,
+				30724DAC1FC7C2320084180A /* HTChatViewController.h */,
+				30724DAD1FC7C2320084180A /* HTChatViewController.m */,
 				30724DAF1FC7C2470084180A /* HTProfileViewController.h */,
 				30724DB01FC7C2470084180A /* HTProfileViewController.m */,
+				30724E631FC7F0090084180A /* HTChatListViewController.h */,
+				30724E641FC7F0090084180A /* HTChatListViewController.m */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -332,6 +344,8 @@
 		30724D981FC7C07E0084180A /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				30724E671FC801880084180A /* PDSendMessageHelper.h */,
+				30724E661FC801880084180A /* PDSendMessageHelper.mm */,
 				30724DED1FC7C8D30084180A /* ChatMessageFrameModel.h */,
 				30724DEB1FC7C8D20084180A /* ChatMessageFrameModel.m */,
 				30724DEA1FC7C8D20084180A /* ChatMessageModel.h */,
@@ -383,12 +397,12 @@
 			children = (
 				30724DB21FC7C26D0084180A /* BaseNavgationViewController.h */,
 				30724DB31FC7C26D0084180A /* BaseNavgationViewController.m */,
-				30724D9B1FC7C1150084180A /* HTBaseTableView.h */,
-				30724D9C1FC7C1150084180A /* BaseViewController.m */,
-				30724D9D1FC7C1150084180A /* HTRefreshHeader.m */,
-				30724D9E1FC7C1150084180A /* HTBaseTableView.m */,
 				30724D9F1FC7C1150084180A /* BaseViewController.h */,
+				30724D9C1FC7C1150084180A /* BaseViewController.m */,
 				30724DA01FC7C1150084180A /* HTRefreshHeader.h */,
+				30724D9D1FC7C1150084180A /* HTRefreshHeader.m */,
+				30724D9B1FC7C1150084180A /* HTBaseTableView.h */,
+				30724D9E1FC7C1150084180A /* HTBaseTableView.m */,
 			);
 			path = BaseClasses;
 			sourceTree = "<group>";
@@ -544,6 +558,15 @@
 				30724E4F1FC7CFED0084180A /* KILabel.m */,
 			);
 			path = Source;
+			sourceTree = "<group>";
+		};
+		30724E691FC804FF0084180A /* NetworkManager */ = {
+			isa = PBXGroup;
+			children = (
+				30724E6A1FC805150084180A /* HTMesseageSender.h */,
+				30724E6B1FC805150084180A /* HTMesseageSender.m */,
+			);
+			path = NetworkManager;
 			sourceTree = "<group>";
 		};
 		3713F31B7467FCA54C55821C /* Frameworks */ = {
@@ -761,6 +784,7 @@
 				30724DAB1FC7C1D60084180A /* CYLTabBarControllerConfig.m in Sources */,
 				30724DD41FC7C5460084180A /* MBProgressHUD+MJ.m in Sources */,
 				30724DCF1FC7C5460084180A /* HexColors.m in Sources */,
+				30724E651FC7F0090084180A /* HTChatListViewController.m in Sources */,
 				30724DB41FC7C26D0084180A /* BaseNavgationViewController.m in Sources */,
 				30724E4A1FC7CFBD0084180A /* PDBaseChatMessageTextCell.m in Sources */,
 				30724DDA1FC7C7110084180A /* PDLocalMessageModel.m in Sources */,
@@ -768,9 +792,11 @@
 				30724DA21FC7C1160084180A /* HTRefreshHeader.m in Sources */,
 				30724E1F1FC7C9C20084180A /* UITextView+Extension.m in Sources */,
 				30724DCD1FC7C5460084180A /* Utils.m in Sources */,
+				30724E6C1FC805150084180A /* HTMesseageSender.m in Sources */,
 				30724E2D1FC7C9C20084180A /* HWTextView.m in Sources */,
 				30724E281FC7C9C20084180A /* HWEmotionPopView.m in Sources */,
 				30724E5D1FC7EA3A0084180A /* UITextView+Extension.m in Sources */,
+				30724E681FC801880084180A /* PDSendMessageHelper.mm in Sources */,
 				30724E1E1FC7C9C10084180A /* NSString+Emoji.m in Sources */,
 				30724DCC1FC7C5460084180A /* PDNetworkStatusManager.m in Sources */,
 				30724DD11FC7C5460084180A /* UIImage+Extension.m in Sources */,
@@ -786,7 +812,7 @@
 				30724DD31FC7C5460084180A /* UIColor+LCMColor.m in Sources */,
 				30724DE51FC7C7F70084180A /* PDMessageProducerTool.m in Sources */,
 				30724D751FC7BFC90084180A /* main.m in Sources */,
-				30724DAE1FC7C2320084180A /* HTChatListViewController.m in Sources */,
+				30724DAE1FC7C2320084180A /* HTChatViewController.m in Sources */,
 				30724DD21FC7C5460084180A /* NSArray+IndexArray.m in Sources */,
 				30724E211FC7C9C20084180A /* HWEmotionAttachment.m in Sources */,
 				30724E201FC7C9C20084180A /* UIView+Extension.m in Sources */,

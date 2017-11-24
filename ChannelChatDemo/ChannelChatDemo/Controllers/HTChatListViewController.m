@@ -8,6 +8,7 @@
 
 #import "HTChatListViewController.h"
 // Controllers
+#import "HTChatViewController.h"
 
 // Model
 
@@ -64,10 +65,12 @@
 
 //页面基本设置
 -(void)basicSettings{
+    self.navigationItem.title = @"聊天";
 }
 
 // 创建页面内控件的地方。
 - (void)createViews{
+    [self.view addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(viewDidTapped:)]];
 }
 
 //页面控件约束
@@ -90,7 +93,9 @@
 }
 
 #pragma mark - Target Methods
-
+-(void)viewDidTapped:(id)sender{
+    [self.navigationController pushViewController:[HTChatViewController new] animated:YES];
+}
 #pragma mark - Notification Methods
 
 #pragma mark - Overridden Methods

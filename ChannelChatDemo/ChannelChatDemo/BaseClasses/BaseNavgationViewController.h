@@ -9,6 +9,6 @@
 #import <UIKit/UIKit.h>
 //#import "QMUINavigationController.h"
 #import "RTRootNavigationController.h"
-@interface BaseNavgationViewController : RTRootNavigationController
+@interface BaseNavgationViewController : UINavigationController
 
 @end

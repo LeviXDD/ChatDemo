@@ -153,7 +153,7 @@
 
 - (UIActivityIndicatorView *)activityView {
     if (_activityView == nil) {
-        _activityView = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhite];
+        _activityView = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
     }
     return _activityView;
 }
@@ -258,11 +258,11 @@
 //        if ([modelFrame.model.message.type isEqualToString:TypeFile] ||[modelFrame.model.message.type isEqualToString:TypePicText]) {
 //            self.bubbleView.image = [UIImage imageNamed:@"liaotianfile"];
 //        } else {
-            self.bubbleView.image = [UIImage resizableImageWithName:@"tp_chat_bubble_right"];
+            self.bubbleView.image = [UIImage resizableImageWithName:@"chat_send_nor"];
 //        }
     } else {    // 接收者
         self.retryButton.hidden  = YES;
-        self.bubbleView.image    = [UIImage resizableImageWithName:@"tp_chat_bubble_left"];
+        self.bubbleView.image    = [UIImage resizableImageWithName:@"chat_recive_nor"];
     }
 //    [self.headImageView.imageView setImageWithURL:[NSURL URLWithString:modelFrame.model.message.userIcon] usingActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
 }
