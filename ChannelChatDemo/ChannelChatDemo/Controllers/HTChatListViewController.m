@@ -13,15 +13,16 @@
 // Model
 
 // Views
-
+#import "HTBaseTableView.h"
+#import "HTChatTableViewCell.h"
 //Tools
 
-//#define <#macro#> <#value#>
+#define HTChatTableViewCellIdentifier @"HTChatTableViewCellIdentifier"
 
 
-@interface HTChatListViewController ()
+@interface HTChatListViewController ()<UITableViewDataSource,UITableViewDelegate>
 #pragma mark - Class Variables
-
+@property(nonatomic, strong) HTBaseTableView *chatListTable;
 
 @end
 
@@ -70,15 +71,14 @@
 
 // 创建页面内控件的地方。
 - (void)createViews{
-    [self.view addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(viewDidTapped:)]];
+    [self.view addSubview:self.chatListTable];
 }
 
 //页面控件约束
 - (void)layoutSettings{
-    //    @weakify(self);
-    //    [self.; mas_makeConstraints:^(MASConstraintMaker *make) {
-    //        @strongify(self);
-    //    }];
+        [self.chatListTable mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.edges.mas_equalTo(self.view);
+        }];
 }
 
 
@@ -94,7 +94,7 @@
 
 #pragma mark - Target Methods
 -(void)viewDidTapped:(id)sender{
-    [self.navigationController pushViewController:[HTChatViewController new] animated:YES];
+    
 }
 #pragma mark - Notification Methods
 
@@ -103,9 +103,46 @@
 #pragma mark - KVO Methods
 
 #pragma mark - UITableViewDelegate, UITableViewDataSource
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
+    return 1;
+}
 
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    return 1;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    return 70;
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    HTChatTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:HTChatTableViewCellIdentifier];
+    return cell;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    [self.navigationController pushViewController:[HTChatViewController new] animated:YES];
+}
+
+-(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
+    return 0.01;
+}
+
+-(UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{
+    return [[UIView alloc] initWithFrame:CGRectMake(0, 0, tableView.width, 0.01)];
+}
 #pragma mark - Privater Methods
 
 #pragma mark - Setter Getter Methods
+-(HTBaseTableView *)chatListTable{
+    if (!_chatListTable) {
+        _chatListTable = [[HTBaseTableView alloc] initWithFrame:CGRectZero style:UITableViewStyleGrouped];
+        _chatListTable.delegate = self;
+        _chatListTable.dataSource = self;
+        [_chatListTable registerNib:[UINib nibWithNibName:NSStringFromClass([HTChatTableViewCell class]) bundle:nil] forCellReuseIdentifier:HTChatTableViewCellIdentifier];
+    }
+    return _chatListTable;
+}
 @end
 

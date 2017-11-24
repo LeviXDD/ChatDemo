@@ -76,6 +76,8 @@
 		30724E681FC801880084180A /* PDSendMessageHelper.mm in Sources */ = {isa = PBXBuildFile; fileRef = 30724E661FC801880084180A /* PDSendMessageHelper.mm */; };
 		30724E6C1FC805150084180A /* HTMesseageSender.m in Sources */ = {isa = PBXBuildFile; fileRef = 30724E6B1FC805150084180A /* HTMesseageSender.m */; };
 		30724E6F1FC812E40084180A /* UIImageView+UIActivityIndicatorForSDWebImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 30724E6E1FC812E40084180A /* UIImageView+UIActivityIndicatorForSDWebImage.m */; };
+		30724E731FC81EAC0084180A /* HTChatTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 30724E711FC81EAC0084180A /* HTChatTableViewCell.m */; };
+		30724E741FC81EAC0084180A /* HTChatTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 30724E721FC81EAC0084180A /* HTChatTableViewCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -235,6 +237,9 @@
 		30724E6B1FC805150084180A /* HTMesseageSender.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HTMesseageSender.m; sourceTree = "<group>"; };
 		30724E6D1FC812E30084180A /* UIImageView+UIActivityIndicatorForSDWebImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImageView+UIActivityIndicatorForSDWebImage.h"; sourceTree = "<group>"; };
 		30724E6E1FC812E40084180A /* UIImageView+UIActivityIndicatorForSDWebImage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImageView+UIActivityIndicatorForSDWebImage.m"; sourceTree = "<group>"; };
+		30724E701FC81EAC0084180A /* HTChatTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HTChatTableViewCell.h; sourceTree = "<group>"; };
+		30724E711FC81EAC0084180A /* HTChatTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HTChatTableViewCell.m; sourceTree = "<group>"; };
+		30724E721FC81EAC0084180A /* HTChatTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HTChatTableViewCell.xib; sourceTree = "<group>"; };
 		C6D8B989D56296B5427A372A /* libPods-ChannelChatDemo.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ChannelChatDemo.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		FF2A6E4548A9F64F6226A7C4 /* Pods-ChannelChatDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ChannelChatDemo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ChannelChatDemo/Pods-ChannelChatDemo.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -388,6 +393,9 @@
 				30724E331FC7CBA80084180A /* InputView.xib */,
 				30724DA71FC7C1C60084180A /* PDBaseChatMessageCell.h */,
 				30724DA61FC7C1C60084180A /* PDBaseChatMessageCell.m */,
+				30724E701FC81EAC0084180A /* HTChatTableViewCell.h */,
+				30724E711FC81EAC0084180A /* HTChatTableViewCell.m */,
+				30724E721FC81EAC0084180A /* HTChatTableViewCell.xib */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -701,6 +709,7 @@
 				30724E501FC7CFED0084180A /* LICENSE in Resources */,
 				30724E2E1FC7C9C20084180A /* HWEmotionPopView.xib in Resources */,
 				30724D721FC7BFC90084180A /* LaunchScreen.storyboard in Resources */,
+				30724E741FC81EAC0084180A /* HTChatTableViewCell.xib in Resources */,
 				30724D6F1FC7BFC90084180A /* Assets.xcassets in Resources */,
 				30724E351FC7CBA80084180A /* InputView.xib in Resources */,
 			);
@@ -840,6 +849,7 @@
 				30724DE91FC7C88D0084180A /* PDMsgChannelModel.m in Sources */,
 				30724E3F1FC7CCE30084180A /* RHChatToolKeyBoard.m in Sources */,
 				30724E251FC7C9C20084180A /* HWEmotionKeyboard.m in Sources */,
+				30724E731FC81EAC0084180A /* HTChatTableViewCell.m in Sources */,
 				30724DEF1FC7C8D30084180A /* ChatMessageModel.m in Sources */,
 				30724DF21FC7C9050084180A /* NSString+Extension.m in Sources */,
 			);
