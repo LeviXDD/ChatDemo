@@ -17,7 +17,6 @@
 		30724DA11FC7C1160084180A /* BaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 30724D9C1FC7C1150084180A /* BaseViewController.m */; };
 		30724DA21FC7C1160084180A /* HTRefreshHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = 30724D9D1FC7C1150084180A /* HTRefreshHeader.m */; };
 		30724DA31FC7C1160084180A /* HTBaseTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 30724D9E1FC7C1150084180A /* HTBaseTableView.m */; };
-		30724DA51FC7C12B0084180A /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = 30724DA41FC7C12B0084180A /* Podfile */; };
 		30724DA81FC7C1C60084180A /* PDBaseChatMessageCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 30724DA61FC7C1C60084180A /* PDBaseChatMessageCell.m */; };
 		30724DAB1FC7C1D60084180A /* CYLTabBarControllerConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = 30724DA91FC7C1D50084180A /* CYLTabBarControllerConfig.m */; };
 		30724DAE1FC7C2320084180A /* HTChatViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 30724DAD1FC7C2320084180A /* HTChatViewController.m */; };
@@ -117,7 +116,6 @@
 		30724D9E1FC7C1150084180A /* HTBaseTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HTBaseTableView.m; sourceTree = "<group>"; };
 		30724D9F1FC7C1150084180A /* BaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseViewController.h; sourceTree = "<group>"; };
 		30724DA01FC7C1150084180A /* HTRefreshHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HTRefreshHeader.h; sourceTree = "<group>"; };
-		30724DA41FC7C12B0084180A /* Podfile */ = {isa = PBXFileReference; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		30724DA61FC7C1C60084180A /* PDBaseChatMessageCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PDBaseChatMessageCell.m; sourceTree = "<group>"; };
 		30724DA71FC7C1C60084180A /* PDBaseChatMessageCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PDBaseChatMessageCell.h; sourceTree = "<group>"; };
 		30724DA91FC7C1D50084180A /* CYLTabBarControllerConfig.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CYLTabBarControllerConfig.m; sourceTree = "<group>"; };
@@ -270,7 +268,6 @@
 		30724D591FC7BFC90084180A = {
 			isa = PBXGroup;
 			children = (
-				30724DA41FC7C12B0084180A /* Podfile */,
 				30724D641FC7BFC90084180A /* ChannelChatDemo */,
 				30724D7D1FC7BFC90084180A /* ChannelChatDemoTests */,
 				30724D881FC7BFC90084180A /* ChannelChatDemoUITests */,
@@ -702,7 +699,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				30724E501FC7CFED0084180A /* LICENSE in Resources */,
-				30724DA51FC7C12B0084180A /* Podfile in Resources */,
 				30724E2E1FC7C9C20084180A /* HWEmotionPopView.xib in Resources */,
 				30724D721FC7BFC90084180A /* LaunchScreen.storyboard in Resources */,
 				30724D6F1FC7BFC90084180A /* Assets.xcassets in Resources */,
@@ -1002,6 +998,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 7L345678P6;
 				ENABLE_BITCODE = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/ChannelChatDemo/ChannelChatDemo.pch";
@@ -1020,6 +1017,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 7L345678P6;
 				ENABLE_BITCODE = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/ChannelChatDemo/ChannelChatDemo.pch";

@@ -26,7 +26,7 @@
 #define PD_CHATTYPE_PIC     @"PD_CHATTYPE_PIC"
 
 
-@interface HTChatViewController ()<HTBaseTableViewDelegate,InputViewDelegate>{
+@interface HTChatViewController ()<HTBaseTableViewDelegate,InputViewDelegate,UITableViewDelegate,UITableViewDataSource>{
     NSString *_userId;   //
 }
 #pragma mark - Class Variables
@@ -146,11 +146,17 @@
 /*滚动到底部*/
 - (void)scrollToBottom
 {
-    CGFloat yOffset = 0; //设置要滚动的位置 0最顶部 CGFLOAT_MAX最底部
     if (self.chatTableView.contentSize.height > self.chatTableView.bounds.size.height) {
+        CGFloat yOffset = 0; //设置要滚动的位置 0最顶部 CGFLOAT_MAX最底部
         yOffset = self.chatTableView.contentSize.height - self.chatTableView.bounds.size.height;
+        [self.chatTableView setContentOffset:CGPointMake(0, self.chatTableView.contentSize.height) animated:YES];
     }
-    [self.chatTableView setContentOffset:CGPointMake(0, yOffset) animated:YES];
+    
+//    [self.chatTableView setContentOffset:CGPointMake(0, self.chatTableView.contentSize.height)];
+}
+
+-(void)tableViewDidTapped:(id)sender{
+    [self.chatPutView closeKeyboard];
 }
 
 #pragma mark - Notification Methods
@@ -294,7 +300,7 @@
         _chatTableView.dataSource = self;
         _chatTableView.canRefresh = YES;
         _chatTableView.baseDelegate = self;
-//        [_chatTableView addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tableViewDidTapped:)]];
+        [_chatTableView addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tableViewDidTapped:)]];
         _chatTableView.backgroundColor = [UIColor whiteColor];
         [_chatTableView registerClass:[PDBaseChatMessageTextCell class] forCellReuseIdentifier:PD_CHATTYPE_TEXT];
 //        [_chatTableView registerClass:[PDBaseChatMessageVoiceCell class] forCellReuseIdentifier:PD_CHATTYPE_VOICE];
@@ -303,7 +309,6 @@
 //        [_chatTableView registerClass:[PDBaseChatMessageSystemCell class] forCellReuseIdentifier:PD_CHATTYPE_SYS];
 //        [_chatTableView registerClass:[PDRedPacketMessageCell class] forCellReuseIdentifier:PD_CHATTYPE_REDPACK];
 //        [_chatTableView registerClass:[PDNoticeBoardTableViewCell class] forCellReuseIdentifier:PDNoticeBoardTableViewCellIdentifier];
-        //        [_chatTableView registerNib:[UINib nibWithNibName:NSStringFromClass([PDNoticeBoardTableViewCell class]) bundle:nil] forCellReuseIdentifier:PDNoticeBoardTableViewCellIdentifier];
         _chatTableView.separatorStyle = UITableViewCellSeparatorStyleNone;
         _chatTableView.backgroundColor = [UIColor hx_colorWithHexString:@"#EEEEEE"];
     }
