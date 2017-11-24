@@ -1,0 +1,79 @@
+//
+//  ChannelChatDemo.pch
+//  ChannelChatDemo
+//
+//  Created by 海涛 黎 on 2017/11/24.
+//  Copyright © 2017年 Levi. All rights reserved.
+//
+
+#ifndef ChannelChatDemo_pch
+#define ChannelChatDemo_pch
+
+// Include any system framework and library headers here that should be included in all compilation units.
+// You will also need to set the Prefix Header build setting of one or more of your targets to reference this file.
+
+#import "Utils.h"
+#import "HexColors.h"
+#import "HTToast.h"
+#import "UIView+Additions.h"
+#import "NSArray+IndexArray.h"
+#import "Masonry.h"
+#import "MJExtension.h"
+#import "MBProgressHUD+MJ.h"
+// 通知中心
+#define RHNotificationCenter [NSNotificationCenter defaultCenter]
+// 表情选中的通知
+#define HWEmotionDidSelectNotification @"HWEmotionDidSelectNotification"
+#define HWSelectEmotionKey @"HWSelectEmotionKey"
+#define NOTIFY_CLOSE_KEYBOARD @"NOTIFY_CLOSE_KEYBOARD"
+
+#define QUICK_BOLD_FONT(fontSize)  [UIFont boldSystemFontOfSize:fontSize];
+#define QUICK_FONT(radian)  [UIFont systemFontOfSize:radian];
+
+//常用参数快捷定义
+//the status bar of the window after removing highly when equipment vertical screen
+#define SCREEN_HEIGHT                   [[UIScreen mainScreen] bounds].size.height
+//width of window when equipment vertical screen
+#define SCREEN_WIDTH                    [[UIScreen mainScreen] bounds].size.width
+
+
+/* 判定字符串是否为空 */
+#define STRING_ISNIL(__POINTER) (__POINTER == nil || [__POINTER isEqualToString:@""] || [__POINTER isEqualToString:@"(null)"] || [__POINTER isEqualToString:@"null"] || [__POINTER isEqualToString:@"(NULL)"] || [__POINTER isEqualToString:@"NULL"] || [__POINTER isEqualToString:@"<null>"])?YES:NO
+
+#define STRING_ISNOTNIL(__POINTER) (__POINTER == nil || [__POINTER isEqualToString:@""] || [__POINTER isEqualToString:@"(null)"] || [__POINTER isEqualToString:@"null"]|| [__POINTER isEqualToString:@"(NULL)"] || [__POINTER isEqualToString:@"NULL"] || [__POINTER isEqualToString:@"<null>"] || __POINTER == NULL || [__POINTER isKindOfClass:[NSNull class]] || [[__POINTER stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]] length]==0)?NO:YES
+
+//字符串空字符处理
+#define EMPTY_IF_NIL(str) (str == nil ? @"" : (str == (id)[NSNull null] ? @"" : str))
+
+#ifndef weakify
+#if DEBUG
+#if __has_feature(objc_arc)
+#define weakify(object) autoreleasepool{} __weak __typeof__(object) weak##_##object = object;
+#else
+#define weakify(object) autoreleasepool{} __block __typeof__(object) block##_##object = object;
+#endif
+#else
+#if __has_feature(objc_arc)
+#define weakify(object) try{} @finally{} {} __weak __typeof__(object) weak##_##object = object;
+#else
+#define weakify(object) try{} @finally{} {} __block __typeof__(object) block##_##object = object;
+#endif
+#endif
+#endif
+
+#ifndef strongify
+#if DEBUG
+#if __has_feature(objc_arc)
+#define strongify(object) autoreleasepool{} __typeof__(object) object = weak##_##object;
+#else
+#define strongify(object) autoreleasepool{} __typeof__(object) object = block##_##object;
+#endif
+#else
+#if __has_feature(objc_arc)
+#define strongify(object) try{} @finally{} __typeof__(object) object = weak##_##object;
+#else
+#define strongify(object) try{} @finally{} __typeof__(object) object = block##_##object;
+#endif
+#endif
+#endif
+#endif /* ChannelChatDemo_pch */
