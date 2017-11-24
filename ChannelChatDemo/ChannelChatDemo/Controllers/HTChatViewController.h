@@ -9,5 +9,5 @@
 #import "BaseViewController.h"
 
 @interface HTChatViewController : BaseViewController
-
+@property(nonatomic, strong) NSString *chatID;
 @end

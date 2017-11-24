@@ -76,6 +76,7 @@
 		30724E651FC7F0090084180A /* HTChatListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 30724E641FC7F0090084180A /* HTChatListViewController.m */; };
 		30724E681FC801880084180A /* PDSendMessageHelper.mm in Sources */ = {isa = PBXBuildFile; fileRef = 30724E661FC801880084180A /* PDSendMessageHelper.mm */; };
 		30724E6C1FC805150084180A /* HTMesseageSender.m in Sources */ = {isa = PBXBuildFile; fileRef = 30724E6B1FC805150084180A /* HTMesseageSender.m */; };
+		30724E6F1FC812E40084180A /* UIImageView+UIActivityIndicatorForSDWebImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 30724E6E1FC812E40084180A /* UIImageView+UIActivityIndicatorForSDWebImage.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -234,6 +235,8 @@
 		30724E671FC801880084180A /* PDSendMessageHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PDSendMessageHelper.h; sourceTree = "<group>"; };
 		30724E6A1FC805150084180A /* HTMesseageSender.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HTMesseageSender.h; sourceTree = "<group>"; };
 		30724E6B1FC805150084180A /* HTMesseageSender.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HTMesseageSender.m; sourceTree = "<group>"; };
+		30724E6D1FC812E30084180A /* UIImageView+UIActivityIndicatorForSDWebImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImageView+UIActivityIndicatorForSDWebImage.h"; sourceTree = "<group>"; };
+		30724E6E1FC812E40084180A /* UIImageView+UIActivityIndicatorForSDWebImage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImageView+UIActivityIndicatorForSDWebImage.m"; sourceTree = "<group>"; };
 		C6D8B989D56296B5427A372A /* libPods-ChannelChatDemo.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ChannelChatDemo.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		FF2A6E4548A9F64F6226A7C4 /* Pods-ChannelChatDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ChannelChatDemo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ChannelChatDemo/Pods-ChannelChatDemo.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -435,6 +438,8 @@
 		30724DC11FC7C5460084180A /* Categories */ = {
 			isa = PBXGroup;
 			children = (
+				30724E6D1FC812E30084180A /* UIImageView+UIActivityIndicatorForSDWebImage.h */,
+				30724E6E1FC812E40084180A /* UIImageView+UIActivityIndicatorForSDWebImage.m */,
 				30724E5C1FC7EA3A0084180A /* UITextView+Extension.h */,
 				30724E5B1FC7EA3A0084180A /* UITextView+Extension.m */,
 				30724E591FC7E9640084180A /* UILabel+fastLab.h */,
@@ -830,6 +835,7 @@
 				30724E341FC7CBA80084180A /* InputView.m in Sources */,
 				30724E301FC7C9C20084180A /* HWEmotionTool.m in Sources */,
 				30724E231FC7C9C20084180A /* HWEmotionListView.m in Sources */,
+				30724E6F1FC812E40084180A /* UIImageView+UIActivityIndicatorForSDWebImage.m in Sources */,
 				30724E2A1FC7C9C20084180A /* HWEmotionTextView.m in Sources */,
 				30724DE41FC7C7F70084180A /* PDMessageDefine.m in Sources */,
 				30724E571FC7E91A0084180A /* NSString+Category.m in Sources */,

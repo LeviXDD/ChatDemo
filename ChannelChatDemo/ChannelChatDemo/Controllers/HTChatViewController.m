@@ -42,7 +42,7 @@
 #pragma mark - View Controller LifeCyle
 - (void)dealloc
 {
-    
+    [[NSNotificationCenter defaultCenter] removeObserver:NOTIFICATION_POST_NEW_MSG];
 }
 
 - (void)viewDidLoad
@@ -78,6 +78,8 @@
 //页面基本设置
 -(void)basicSettings{
     _userId = @"xxxx";
+    self.navigationItem.title = @"Jack 马";
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(receiveNewMessage:) name:NOTIFICATION_POST_NEW_MSG object:nil];
 }
 
 // 创建页面内控件的地方。
@@ -152,6 +154,38 @@
 }
 
 #pragma mark - Notification Methods
+/*
+  *(1)接收到消息之后会把消息解析并存储到数据库中
+  *(2)然后通知到UI
+  *(3)UI从根据当前最后一条消息去从数据库中查询最新的消息并以数据形式返回过来
+    */
+-(void)receiveNewMessage:(NSNotification*)obj{
+    NSArray *channelIdArr = [obj object];
+    if ([channelIdArr containsObject:self.chatID]) {
+        if (self.chatSourceArr.count == 0) {  //如果暂无消息
+            /**/
+//            @weakify(self);
+//            [PDMessageWCDBAPI querryMSGWithLastTime:nil andChannelId:self.sameTopicId Completion:^(NSMutableArray<PDProdecedModel *> *prodecedModelArr) {
+//                @strongify(self);
+//                [self tableSourceMessageProcess:prodecedModelArr isLoadHistory:NO];
+//            }];
+            
+        } else {  //如果有消息，则根据最后一条消息的时间戳去数据查询最新的消息
+//            PDMessageFrame *lastLocalModel = self.chatSourceArr.lastObject;
+//            @weakify(self);
+//            [PDMessageWCDBAPI querryMSGWithLastTime:lastLocalModel.model.message.sendTimeStamp andChannelId:self.sameTopicId Completion:^(NSMutableArray<PDProdecedModel *> *prodecedModelArr) {
+//                @strongify(self);
+//                [self tableSourceMessageProcess:prodecedModelArr isLoadHistory:NO];
+//            }];
+        }
+    }
+    //Demo中仅生成假消息以做展示
+    NSString *localMsgId = [self creatLocalMessageId];
+     PDMessageFrame *modelFrame = [PDSendMessageHelper createMessageFrameWithContentType:MES_CHATCONTENT_TYPE_TEXT locaMsgId:localMsgId content:@"收到消息啦" timeStamp:[self sendTimeStamp] from:@"Jack 马" to:@"我" userIcon:@"https://ss0.bdstatic.com/94oJfD_bAAcT8t7mm9GUKT-xh_/timg?image&quality=100&size=b4000_4000&sec=1511512783&di=b3e1813e713115edd6603c251ea1353b&src=http://dzb.jinbaonet.com/images/2011-10/14/A18/res03_attpic_brief.jpg" isSender:NO uuid:localMsgId sendingStatus:PDMessageDeliveryState_Delivered];
+    [self.chatSourceArr addObject:modelFrame];
+    [self reloadDataWithNewMessage:YES];
+    [self scrollToBottom];
+}
 
 #pragma mark - Overridden Methods
 
@@ -201,7 +235,7 @@
         return;
     }
     NSString *localMsgId = [self creatLocalMessageId];
-    PDMessageFrame *messageF = [PDSendMessageHelper createMessageFrameWithContentType:MES_CHATCONTENT_TYPE_TEXT locaMsgId:localMsgId content:content timeStamp:[self sendTimeStamp] from:@"我" to:@"另一个人" userIcon:@"先不填写吧" isSender:YES uuid:localMsgId sendingStatus:PDMessageDeliveryState_Delivering];
+    PDMessageFrame *messageF = [PDSendMessageHelper createMessageFrameWithContentType:MES_CHATCONTENT_TYPE_TEXT locaMsgId:localMsgId content:content timeStamp:[self sendTimeStamp] from:@"我" to:@"另一个人" userIcon:@"https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1511523518956&di=29c5dd09b75713d29571dc00db35f5f0&imgtype=0&src=http%3A%2F%2Ftp.lingyu.me%2Fwp-content%2Fuploads%2F2016%2F01%2F%40C6AXK1PI0GKWNDLEL.jpg" isSender:YES uuid:localMsgId sendingStatus:PDMessageDeliveryState_Delivering];
     [self.chatSourceArr addObject:messageF];
     [self reloadDataWithNewMessage:YES];
     /*将数据插入数据库中*/
@@ -233,7 +267,9 @@
 /*发送消息*/
 -(void)sendMessageWithMessageModel:(PDMessageFrame*)model{
     PDLocalMessageModel *msgModel = model.model;
+    @weakify(self);
     [HTMesseageSender sendMsgWithUserId:_userId message:msgModel success:^(BOOL success, PDLocalMessageModel *message) {
+        @strongify(self);
         if (success) {
             msgModel.message.deliveryState = PDMessageDeliveryState_Delivered;
             [self reloadDataWithNewMessage:YES];

@@ -8,6 +8,7 @@
 
 #import "AppDelegate.h"
 #import "CYLTabBarControllerConfig.h"
+#import "PDMessageDefine.h"
 @interface AppDelegate ()
 
 @end
@@ -23,8 +24,10 @@
     [self.window setRootViewController:tabBarControllerConfig.tabBarController];
     //    CYLTabBarControllerConfig *tabBarControllerConfig = [[CYLTabBarControllerConfig alloc] init];
     //    [self.window setRootViewController:tabBarControllerConfig.tabBarController];
-    
     [self.window makeKeyAndVisible];
+    [NSTimer scheduledTimerWithTimeInterval:10 repeats:YES block:^(NSTimer * _Nonnull timer) {
+        [[NSNotificationCenter defaultCenter] postNotificationName:NOTIFICATION_POST_NEW_MSG object:@[@"23333"]];
+    }];
     return YES;
 }
 

@@ -13,6 +13,7 @@
 //#import "PDMessageWCDBAPI.h"
 #import "UIImage+Extension.h"
 #import "UILabel+fastLab.h"
+#import "UIImageView+WebCache.h"
 #define IColor(r, g, b) [UIColor colorWithRed:(r)/255.0 green:(g)/255.0 blue:(b)/255.0 alpha:1.0]
 
 @interface PDBaseChatMessageCell()
@@ -133,7 +134,7 @@
     if (!_nickNameLabel) {
         _nickNameLabel = [[UILabel alloc] init];
         _nickNameLabel.font = SenderNameFont;
-        _nickNameLabel.textColor = [UIColor hx_colorWithHexString:@"D6D6D6"];
+        _nickNameLabel.textColor = [UIColor blackColor];
     }
     return _nickNameLabel;
 }
@@ -180,11 +181,11 @@
     _channelType = channelType;
     if (_channelType == PDChannelTypeSameTopic || _channelType == PDChannelTypeSimCity) {
         self.activityView.activityIndicatorViewStyle = UIActivityIndicatorViewStyleWhite;
-        _nickNameLabel.textColor = self.modelFrame.model.message.isSite?[UIColor redColor]:[UIColor hx_colorWithHexString:@"D6D6D6"];
+        _nickNameLabel.textColor =[UIColor blackColor];
     } else {
         self.activityView.activityIndicatorViewStyle = UIActivityIndicatorViewStyleGray;
         _timeLab.backgroundColor = [UIColor hx_colorWithHexString:@"#C6C6C6"];
-        _nickNameLabel.textColor = self.modelFrame.model.message.isSite?[UIColor redColor]:[UIColor lightGrayColor];
+        _nickNameLabel.textColor = [UIColor blackColor];
         if (self.modelFrame.model.message.contentType == MES_CHATCONTENT_TYPE_REDPACK) {
             if (self.modelFrame.model.isSender) {
                 self.bubbleView.image = [UIImage resizableImageWithName:@"redPacketMe"];
@@ -265,6 +266,7 @@
         self.bubbleView.image    = [UIImage resizableImageWithName:@"chat_recive_nor"];
     }
 //    [self.headImageView.imageView setImageWithURL:[NSURL URLWithString:modelFrame.model.message.userIcon] usingActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
+    [self.headImageView.imageView sd_setImageWithURL:[NSURL URLWithString:modelFrame.model.message.userIcon]];
 }
 
 
