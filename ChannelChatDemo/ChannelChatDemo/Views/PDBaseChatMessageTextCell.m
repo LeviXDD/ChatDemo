@@ -9,9 +9,6 @@
 #import "PDBaseChatMessageTextCell.h"
 #import "PDChatInfoDefs.h"
 
-
-
-
 @implementation PDBaseChatMessageTextCell
 - (instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
 {
@@ -25,8 +22,6 @@
     }
     return self;
 }
-
-
 
 #pragma mark - 重写父类文本复制方法
 -(void)copyMethod{
@@ -42,13 +37,11 @@
 {
     [super setModelFrame:modelFrame];
     self.chatLabel.frame = modelFrame.chatLabelF;
-//    [self.chatLabel setAttributedText:[ICFaceManager transferMessageString:modelFrame.model.message.content font:self.chatLabel.font lineHeight:self.chatLabel.font.lineHeight]];
     if (modelFrame.model.message.attributContent) {
         self.chatLabel.attributedText = modelFrame.model.message.attributContent;
     }else{
         self.chatLabel.text = EMPTY_IF_NIL(modelFrame.model.message.content);
     }
-    //    self.chatLabel.text = modelFrame.model.content;
 }
 
 
@@ -63,15 +56,7 @@
     }
 }
 
-- (void)urlSkip:(NSURL *)url
-{
-//    [self routerEventWithName:GXRouterEventURLSkip
-//                     userInfo:@{@"url"   : url
-//                                }];
-}
-
-
-
+- (void)urlSkip:(NSURL *)url{}
 
 #pragma mark - Getter and Setter
 - (KILabel *)chatLabel
@@ -84,14 +69,4 @@
     }
     return _chatLabel;
 }
-
-
-/*
-// Only override drawRect: if you perform custom drawing.
-// An empty implementation adversely affects performance during animation.
-- (void)drawRect:(CGRect)rect {
-    // Drawing code
-}
-*/
-
 @end

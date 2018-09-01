@@ -14,32 +14,6 @@
 //#import "RegexKitLite.h"
 #import "NSString+FilePath.h"
 @implementation ChatMessageFrameModel
-
-- (NSMutableArray *)HWEmotionArray
-{
-    NSString *path1;
-    NSString *path3;
-//    PDUser *user = [PDUser sharedInstance];
-//    if([user.sex intValue]==1)
-        path1 = [[NSBundle mainBundle] pathForResource:@"EmotionIcons/emoji/man_emoji.plist" ofType:nil];
-//    else
-        path3 = [[NSBundle mainBundle] pathForResource:@"EmotionIcons/emoji/woman_emoji.plist" ofType:nil];
-    
-    NSString *path2 = [[NSBundle mainBundle] pathForResource:@"EmotionIcons/emoji/default.plist" ofType:nil];
-    if(!_HWEmotionArray)
-    {
-        _HWEmotionArray=[[NSMutableArray alloc]initWithCapacity:1];
-        NSArray *arr1 =   [HWEmotion objectArrayWithKeyValuesArray:[NSArray arrayWithContentsOfFile:path1]];
-        NSArray *arr3 =   [HWEmotion objectArrayWithKeyValuesArray:[NSArray arrayWithContentsOfFile:path3]];
-        NSArray *arr2 =   [HWEmotion objectArrayWithKeyValuesArray:[NSArray arrayWithContentsOfFile:path2]];
-        
-        [_HWEmotionArray addObjectsFromArray:arr1];
-        [_HWEmotionArray addObjectsFromArray:arr3];
-        [_HWEmotionArray addObjectsFromArray:arr2];
-    }
-    return _HWEmotionArray;
-}
-
 -(void)setMessage:(ChatMessageModel *)message
 {
     _message = message;
@@ -68,21 +42,9 @@
         }
         return;
     }
-//    else if (messageType==27/*&&message.rpId.length==0&&[message.rpType isEqualToString:@"2"]*/){
-//        _cellHeight = 30;
-//        _timeF = CGRectMake(timeX, timeY, timeW, timeH);
-//        
-//        //频道提醒消息
-//        if (messageType == 100) {
-//            _cellHeight = 250;
-//            _tipF = CGRectMake((screenWidth-320)/2, 5, 320, 220);
-//        }
-//        return;
-//    }
     
     // 1.时间
     if (NO == message.hiddenTime) { // 是否需要计算时间的frame
-        
         _timeF = CGRectMake(timeX, timeY, timeW, timeH);
     }
     
@@ -110,46 +72,6 @@
         __block  CGFloat imageH = 140;
         CGFloat imageY = iconY +20;
         CGFloat imageX = 0;
-
-//        if (message.isMe) {
-//            NSString *filePath = [NSString stringWithFormat:@"%@/%@",[@"/upload_img/" filePathOfCaches],message.localPath];
-//            NSFileManager *fileManager = [NSFileManager defaultManager];
-//            if(message.fileUrl.length>0){
-//                __block dispatch_semaphore_t semaphore = dispatch_semaphore_create(0);
-//                [testV sd_setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@%@",PDImageURL,message.fileUrl]] placeholderImage:nil completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
-//                    //结束等待
-//                    float scale = image.size.width*.1f/image.size.height;
-//                    if (scale>1) imageH = imageW / scale;else imageW = scale * imageH;
-//                    dispatch_semaphore_signal(semaphore);
-//                }];
-//                //等待信号
-//                dispatch_semaphore_wait(semaphore, DISPATCH_TIME_FOREVER);
-//            }
-//            else{
-//                if ([fileManager fileExistsAtPath:filePath]){
-//                    UIImage *localImage = [UIImage imageWithContentsOfFile:filePath];
-//                    float scale = localImage.size.width*.1f/localImage.size.height;
-//                    if (scale>1) imageH = imageW / scale;else imageW = scale * imageH;
-//                }
-//                else{
-//                    dispatch_semaphore_t sem = dispatch_semaphore_create(0);
-//                    [testV sd_setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@%@",PDImageURL,message.thumbnailUrl]] placeholderImage:nil completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
-//                        float scale = image.size.width*.1f/image.size.height;
-//                        if (scale>1) imageH = imageW / scale;else imageW = scale * imageH;
-//                        dispatch_semaphore_signal(sem);
-//                    }];
-//                    dispatch_semaphore_wait(sem, DISPATCH_TIME_FOREVER);
-//                }
-//            }
-//                }else{
-//                    dispatch_semaphore_t sem = dispatch_semaphore_create(0);
-//                    [testV sd_setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@%@",PDImageURL,message.thumbnailUrl]] placeholderImage:nil completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
-//                        float scale = image.size.width*.1f/image.size.height;
-//                        if (scale>1) imageH = imageW / scale;else imageW = scale * imageH;
-//                        dispatch_semaphore_signal(sem);
-//                    }];
-//                    dispatch_semaphore_wait(sem, DISPATCH_TIME_FOREVER);
-//                }
         if (NJMessageModelTypeMe == _message.type) {
             // 自己发的
             // x = 头像x - 间隙 - 文本的宽度
@@ -203,12 +125,9 @@
         CGFloat maxTextY = CGRectGetMaxY(_textF);
         
         _cellHeight = MAX(maxIconY, maxTextY) + padding;
-        
-        //        CGFloat playSoundImageViewH = _textF.size.height;
         CGFloat playSoundImageViewH = 20;
         CGFloat playSoundImageViewX = 40;
         CGFloat playSoundImageViewY = 10;
-        //        CGFloat playSoundImageViewW = textW;
         CGFloat playSoundImageViewW = 20;
         if (_message.isMe) {
             playSoundImageViewX = _textF.size.width - 40;
@@ -264,8 +183,6 @@
             // 自己发的
             // x = 头像x - 间隙 - 文本的宽度
             imageX = iconX - padding - imageW;
-            
-            
             _nameF = CGRectMake(iconX - padding - 100, iconY, 100, 15);
         }else
         {
@@ -300,74 +217,38 @@
     
     CGFloat textW = 20 * 2;
     CGFloat textH = 15 +  20 * 2;
-    //    NSString *regexString = @"\\[[a-z0-9-_]+\\]";
-//    _message.text=[_message.text stringByReplacingOccurrencesOfString:@" " withString:@""];
-    //    NSArray *array = [_message.text componentsSeparatedByString:@"]"];
-    //    NSArray *array3 = [_message.text componentsSeparatedByRegex:regexString];
-    
+   
     NSMutableArray *array=[[NSMutableArray alloc]initWithCapacity:1];
-    
-    //    NSMutableDictionary *markDic=[[NSMutableDictionary alloc]initWithCapacity:1];
     NSMutableString *resultStr = [NSMutableString stringWithCapacity:0];
-    
     NSString *pattern = @"\\[[a-z0-9-_]+\\]";
-    
     NSRegularExpression *regex = [NSRegularExpression regularExpressionWithPattern:pattern options:0 error:nil];
-    
     NSArray *matches = [regex matchesInString:_message.text options:0 range:NSMakeRange(0, _message.text.length)];
-    
     NSUInteger lastIdx = 0;
     
-    for (NSTextCheckingResult* match in matches)
-        
-    {
-        
+    for (NSTextCheckingResult* match in matches) {
         NSRange range = match.range;
-        
         if (range.location > lastIdx)
-            
         {
-            
             NSString  *temp = [_message.text substringWithRange:NSMakeRange(lastIdx, range.location - lastIdx)];
-            
             [resultStr appendString:temp];
-            
             [array addObject:temp];
-            
         }
-        
-        //        NSString *link = [_message.text substringWithRange:[match rangeAtIndex:0]];
         
         NSString *text = [_message.text substringWithRange:[match rangeAtIndex:0]];
         [array addObject:text];
         NSString *atName = [NSString stringWithFormat:@"@%@",text];
-        
         [resultStr appendString:atName];
-        
-        //        [markDic setObject:link forKey:atName];
-        
         lastIdx = range.location + range.length;
         
     }
     
-    
-    
     if (lastIdx < _message.text.length)
-        
     {
-        
         NSString  *temp = [_message.text substringFromIndex:lastIdx];
-        
         [resultStr appendString:temp];
         [array addObject:temp];
-        
     }
     
-    
-    
-    
-    
-    //    NSArray *array = [_message.text arrayOfCaptureComponentsMatchedByRegex:@""];
     if(array.count == 1)
     {
         textW = textSize.width + NJEdgeInsetsLeftRight * 2;
@@ -411,7 +292,6 @@
                         attchWH = 28;
                         offset = -9;
                     }
-//                    attch.bounds = CGRectMake(0, offset, attchWH, attchWH);
                     
                     // 根据附件创建一个属性文字
                     NSAttributedString *imageStr = [NSAttributedString attributedStringWithAttachment:attch];
@@ -423,29 +303,17 @@
 
                 }
             }
-            
-//            for (HWEmotion *emotion in self.HWEmotionArray) {
-//                NSLog(@"name=%@ - png=%@",emotion.chs,emotion.png);
-//            }
-//            
             if (!isEmotion) {
                 //                NSAttributedString *subStr = [[NSAttributedString alloc]initWithString:string];
                 //段落属性
                 NSMutableParagraphStyle *style =  [[NSParagraphStyle defaultParagraphStyle] mutableCopy];
-//                style.alignment = NSTextAlignmentLeft;
-//                style.firstLineHeadIndent = 5.0f;
                 style.lineSpacing = 5.0f;
-//                style.paragraphSpacing = 5.0f;
-//                style.headIndent = 5.0f;
-                
                 NSMutableAttributedString *subStr =[[NSMutableAttributedString alloc] initWithString:string attributes:@{NSFontAttributeName:[UIFont systemFontOfSize:16]}];
                 //
                 [atrString appendAttributedString: subStr];
                 
                 CGRect rect = [subStr boundingRectWithSize:CGSizeMake(255, 10000) options:NSStringDrawingUsesLineFragmentOrigin | NSStringDrawingUsesFontLeading context:nil];
                 
-                //                CGSize textSize = [string sizeWithFont:NJTextFont maxSize:maxSize];
-                //                textW = textW + textSize.width;
                 textW = textW + ceilf(rect.size.width);
             }
             
@@ -466,31 +334,6 @@
     }
     textW = theSize.width;
     textH = theSize.height;
-//    if(textW > (255) )
-//    {
-//        textW = (255) ;
-//        if (_message.textAttributedString) {
-//            CGRect rect = [_message.textAttributedString boundingRectWithSize:CGSizeMake(255, 10000) options:NSStringDrawingUsesLineFragmentOrigin | NSStringDrawingUsesFontLeading context:nil];
-//            
-//            textH = ceilf(rect.size.height);
-////            if (textH < 100) {
-////                textH = 100;
-////            }
-//            textH += newLineCount * 20+20 + NJEdgeInsetsTopBottom * 2;
-//        }
-//        else{
-////            textH = 20 + NJEdgeInsetsTopBottom * 2 + newLineCount * 20;
-//            textH =  [self heightForString:message.text fontSize:16 andWidth:(255)];
-//            textH += newLineCount * 25;
-//        }
-//        //        textH = 20 + [self heightForString:message.text fontSize:15 andWidth:(ScreenWidth - 100 - NJEdgeInsetsTopBottom * 2)];
-//        //        if (_message.textAttributedString == nil) {
-//        //            textH += newLineCount * 25;
-//        //        }
-//    }
-
-//    NSInteger num=textH/25 -1;
-//    textH=num*5+textH;
     CGFloat textImageX ;
     CGFloat textImageY ;
     if (NJMessageModelTypeMe == _message.type) {
@@ -515,7 +358,7 @@
         textY += 10;
         textImageY =  textY - 10;
     }
-//    _textF = CGRectMake(textX, textY, (textW>255?255:textW), textH);
+
     _textF = CGRectMake(textX, textY, textW, textH);
     _textImageVF = CGRectMake(textImageX, textImageY, textW+35, textH + 20);
     // 4.行高
@@ -534,18 +377,7 @@
     size = CGSizeMake(ceil(size.width),ceil(size.height));
     return size;
 }
-// 富文本计算
-//-(CGFloat)getSpaceLabelHeightwithSpeace:(CGFloat)lineSpeace withFont:(UIFont*)font withWidth:(CGFloat)width{
-//    NSMutableParagraphStyle *paraStyle = [[NSMutableParagraphStyle alloc] init];
-//    //    paraStyle.lineBreakMode = NSLineBreakByCharWrapping;
-//    /** 行高 */
-//    paraStyle.lineSpacing = lineSpeace;
-//    // NSKernAttributeName字体间距
-//    NSDictionary *dic = @{NSFontAttributeName:font, NSParagraphStyleAttributeName:paraStyle, NSKernAttributeName:@1.5f
-//                          };
-//    CGSize size = [self boundingRectWithSize:CGSizeMake(width,MAXFLOAT) options:NSStringDrawingUsesLineFragmentOrigin attributes:dic context:nil].size;
-//    return size.height;
-//}
+
 - (float) heightForString:(NSString *)value fontSize:(float)fontSize andWidth:(float)width{
     UITextView *detailTextView = [[UITextView alloc]initWithFrame:CGRectMake(0, 0, width, 0)];
     detailTextView.font = [UIFont systemFontOfSize:fontSize];
@@ -553,5 +385,4 @@
     CGSize deSize = [detailTextView sizeThatFits:CGSizeMake(width,CGFLOAT_MAX)];
     return deSize.height;
 }
-
 @end

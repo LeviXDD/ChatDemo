@@ -11,11 +11,6 @@
 #import "PDLocalMessageModel.h"
 @class PDProdecedModel;
 
-//NSString *const PDChatTypeText        = @"PDChatTypeText";
-//NSString *const PDChatTypeVoice       = @"PDChatTypeVoice";
-//NSString *const PDChatTypePic         = @"PDChatTypePic";
-//NSString *const PDChatTypeVideo       = @"PDChatTypeVideo";
-
 @interface PDSendMessageHelper : NSObject
 /**
  *  创建一条本地消息
@@ -93,8 +88,10 @@
 
 //创建红包消息体
 + (PDMessageFrame *)createRedPacketMsgFrameModelWithMsgModel:(PDProdecedModel*)model isSite:(BOOL)isSite;
+
 //构建公告牌消息体
 + (PDMessageFrame *)createNoticeBoardFrameModelWithMsgModel:(PDProdecedModel*)model;
+
 // 坐标转换到窗口中的位置
 + (CGRect)photoFramInWindow:(UIButton *)photoView;
 @end

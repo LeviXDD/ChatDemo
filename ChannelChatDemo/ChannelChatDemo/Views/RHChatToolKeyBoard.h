@@ -8,21 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-typedef enum {
-    ToolsPhotos,
-    ToolsVideos,
-    TooisRedPacket,
-    ToolsMeets,
-    ToolsRed,
-    ToolsCards,
-    ToolsGames,
-    ToolsVCards
-}ToolsType;
-
 @interface RHChatToolKeyBoard : UIView
-@property(nonatomic,retain)NSString *channelID;
-@property(nonatomic, assign) BOOL isSameTopic;
-@property (nonatomic,copy)void(^toolButtonSelected)(NSInteger buttonTag);
-
 
 @end

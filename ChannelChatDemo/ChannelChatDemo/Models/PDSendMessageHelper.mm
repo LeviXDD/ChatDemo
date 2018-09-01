@@ -178,84 +178,11 @@
     message.sendTimeStamp = sendTime;
     PDLocalMessageModel *model = [[PDLocalMessageModel alloc] init];
     model.message = message;
-    
     PDMessageFrame *modelF = [[PDMessageFrame alloc] init];
     modelF.model = model;
     
     return modelF;
 }
-
-//构建红包本地消息体
-//+ (PDMessageFrame *)createRedPacketMsgFrameModelWithMsgModel:(PDProdecedModel*)model isSite:(BOOL)isSite{
-//    PDMessageFrame *frameModel = [[PDMessageFrame alloc] init];
-//
-//    PDMessage *messageModel = [[PDMessage alloc] init];
-//    BOOL isSender = [model.msMSGModel.fromUserId isEqualToString:[[PDUser sharedInstance] userId]];
-//    messageModel.from = model.msMSGModel.fromUserName;
-//    messageModel.to = @"";
-//    messageModel.deliveryState = PDMessageDeliveryState_Delivered;
-//    messageModel.userIcon = model.msMSGModel.fromUserIcon;
-//    messageModel.localMsgId = model.msMSGModel.messageId;
-//    messageModel.content = @"";
-//    messageModel.sendTimeStamp = model.msMSGModel.insertDBTime;
-//    messageModel.contentType = MES_CHATCONTENT_TYPE_REDPACK;
-//    messageModel.uuid = model.msMSGModel.uuid;
-//    messageModel.isSite = isSite;
-////    if (isSender) {
-////        messageModel.from = [PDMessageWCDBAPI nickNameForSelf];
-////    }
-//    NSString *redPacketContent = model.msMSGModel.sendContents;
-//    PDRedPacketModel *redPacketModel = [PDRedPacketModel mj_objectWithKeyValues:redPacketContent];
-//    messageModel.redPacketModel = redPacketModel;
-//
-//    PDLocalMessageModel *localMsgModel = [[PDLocalMessageModel alloc] init];
-//    localMsgModel.isSender        = isSender;
-//    localMsgModel.message = messageModel;
-//    frameModel.model = localMsgModel;
-//    return frameModel;
-//}
-//
-////构建公告牌消息体
-//+ (PDMessageFrame *)createNoticeBoardFrameModelWithMsgModel:(PDProdecedModel*)model{
-//    PDMessageFrame *modelFrame = [[PDMessageFrame alloc] init];
-//
-//    PDLocalMessageModel *localModel = [PDLocalMessageModel new];
-//    localModel.channelModel = [self dbChannelModelToLocalChannelModel:model.msChannelModel];
-//    PDMessage *message = [PDMessage new];
-//    message.contentType = MES_CHATCONTENT_TYPE_NOTICEBOARD;
-//    message.noticeBoardType = (NOTICEBOARD_TYPE)model.msMSGModel.noticeBoardType;
-//    message.channelType = (PDChannelType)[model.msChannelModel.channelType integerValue];
-//    message.sendTimeStamp = model.msMSGModel.insertDBTime;
-//    message.uuid = model.msMSGModel.uuid;
-//    if ((NOTICEBOARD_TYPE)model.msMSGModel.noticeBoardType == NOTICEBOARD_TYPE_COMMEN_CATCHDOLL) {
-//        NSString *gameContent = model.msMSGModel.sendContents;
-//        PDPostGameModel *gameModel = [PDPostGameModel mj_objectWithKeyValues:gameContent];
-//        message.gameModel = gameModel;
-//    }
-//    localModel.message = message;
-//
-//    //触发frameModel的setter方法，计算frame
-//    modelFrame.model = localModel;
-//    return modelFrame;
-//}
-//
-//+(PDMsgChannelModel*)dbChannelModelToLocalChannelModel:(PDMessageChannelModel*)dbChannelModel{
-//    PDMsgChannelModel *localChannelModel = [[PDMsgChannelModel alloc] init];
-//    localChannelModel.channelId = dbChannelModel.channelId;
-//    localChannelModel.channelName = dbChannelModel.channelName;
-//    localChannelModel.lon = dbChannelModel.lon;
-//    localChannelModel.lat = dbChannelModel.lat;
-//    localChannelModel.channelImg = dbChannelModel.channelImg;
-//    localChannelModel.personNum = dbChannelModel.personNum;
-//    localChannelModel.chatName = dbChannelModel.chatName;
-//    localChannelModel.channelType = dbChannelModel.channelType;
-//    localChannelModel.myChannelType = dbChannelModel.myChannelType;
-//    localChannelModel.roleType = dbChannelModel.roleType;
-//    localChannelModel.chatType = dbChannelModel.chatType;
-//    localChannelModel.sameTopicFlag = dbChannelModel.sameTopicFlag;
-//    localChannelModel.validDistance = dbChannelModel.validDistance;
-//    return localChannelModel;
-//}
 
 // 图片按钮在窗口中得位置
 + (CGRect)photoFramInWindow:(UIButton *)photoView

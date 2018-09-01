@@ -21,13 +21,5 @@
     self.headerImageView.layer.masksToBounds = YES;
     self.headerImageView.layer.cornerRadius = 3.;
     [self.headerImageView sd_setImageWithURL:[NSURL URLWithString:@"https://ss0.bdstatic.com/94oJfD_bAAcT8t7mm9GUKT-xh_/timg?image&quality=100&size=b4000_4000&sec=1511512783&di=b3e1813e713115edd6603c251ea1353b&src=http://dzb.jinbaonet.com/images/2011-10/14/A18/res03_attpic_brief.jpg"]];
-    
 }
-
-- (void)setSelected:(BOOL)selected animated:(BOOL)animated {
-    [super setSelected:selected animated:animated];
-
-    // Configure the view for the selected state
-}
-
 @end

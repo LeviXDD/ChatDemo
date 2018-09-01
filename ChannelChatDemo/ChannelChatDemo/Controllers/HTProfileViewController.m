@@ -42,52 +42,21 @@
     [self loadData];
 }
 
-- (void)viewWillAppear:(BOOL)animated
-{
-    [super viewWillAppear:animated];
-}
-
-- (void)viewDidAppear:(BOOL)animated
-{
-    [super viewDidAppear:animated];
-}
-
-- (void)viewWillDisappear:(BOOL)animated
-{
-    [super viewWillDisappear:animated];
-}
-
-- (void)viewDidDisappear:(BOOL)animated
-{
-    [super viewDidDisappear:animated];
-}
-
 //页面基本设置
 -(void)basicSettings{
 }
 
 // 创建页面内控件的地方。
-- (void)createViews{
-}
+- (void)createViews{}
 
 //页面控件约束
-- (void)layoutSettings{
-    //    @weakify(self);
-    //    [self.; mas_makeConstraints:^(MASConstraintMaker *make) {
-    //        @strongify(self);
-    //    }];
-}
-
+- (void)layoutSettings{}
 
 // 创建页面内控件事件的地方
-- (void)createEvents{
-}
+- (void)createEvents{}
 
 // 如果页面加载过程需要读取数据, 则写在这个地方。
-- (void)loadData
-{
-    
-}
+- (void)loadData{}
 
 #pragma mark - Target Methods
 

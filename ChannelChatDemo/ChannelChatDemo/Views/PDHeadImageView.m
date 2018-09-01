@@ -15,22 +15,13 @@
 
 @end
 @implementation PDHeadImageView
-
-/*
-// Only override drawRect: if you perform custom drawing.
-// An empty implementation adversely affects performance during animation.
-- (void)drawRect:(CGRect)rect {
-    // Drawing code
-}
-*/
 - (instancetype)init
 {
     if (self = [super init]) {
         [self imageView];
-        self.layer.masksToBounds  = YES;
-        self.backgroundColor      = XZRGB(0xf0f0f0);
-        //        self.bordering            = 4;
-        self.bordering            = 0;
+        self.layer.masksToBounds = YES;
+        self.backgroundColor = XZRGB(0xf0f0f0);
+        self.bordering = 0;
     }
     return self;
 }
@@ -55,9 +46,10 @@
 - (void)setColor:(UIColor *)color bording:(CGFloat)bord
 {
     self.backgroundColor = color;
-    self.bordering       = bord;
+    self.bordering = bord;
 }
 
+#pragma mark - Getters
 - (UIImageView *)imageView
 {
     if (nil == _imageView) {
@@ -69,5 +61,4 @@
     }
     return _imageView;
 }
-
 @end

@@ -12,12 +12,9 @@
 #import "UITextView+Extension.h"
 #import "HWEmotionTextView.h"
 #import "RHChatToolKeyBoard.h"
-//#import "SGPhotoThumbnailViewController.h"
-//#import "WechatShortVideoController.h"
 #import "HWEmotion.h"
 #import "HWEmotionTool.h"
 #import "UIImage+GIF.h"
-//#import "QRCodeReaderViewController.h"
 typedef enum{
     InputStatus_default,//默认无弹出键盘
     InputStatus_sound,  //发送语音
@@ -40,9 +37,14 @@ typedef enum{
 @end
 
 @implementation InputView
+-(void)dealloc{
+    NSLog(@"键盘已销毁");
+}
+
 -(void)chageNSLayoutCons{
     self.firleading.constant+=31;
 }
+
 +(id)inputViewWithChannelID:(NSString *)channelld{
     InputView * instance = [[[NSBundle mainBundle] loadNibNamed:@"InputView" owner:nil options:nil] lastObject];
     instance.channelID = channelld;
@@ -54,72 +56,6 @@ typedef enum{
     [instance initControls];
     
     return instance;
-}
-
--(void)dealloc{
-    NSLog(@"键盘已销毁");
-}
-
--(void)startLimitSpeechIsSameChannel:(BOOL)isSameChannel{
-//    if (isSameChannel) {
-//        [self.limitGitImageView setImage:[UIImage sd_animatedGIFNamed:@"tp_5secTimeLimit"]];
-//        self.limitView.hidden = NO;
-//        self.limitGitImageView.hidden = NO;
-//        self.textView.placeholder = @"";
-//        //    @weakify(self);
-//        //    NSTimer *timer = [NSTimer scheduledTimerWithTimeInterval:5. target:self selector:@selector(timerStop) userInfo:nil repeats:NO];
-//        //    [timer fire];
-//        [self performSelector:@selector(stopSpeechLimit) withObject:nil afterDelay:4.5f];
-//    } else {
-//        self.limitView.hidden = NO;
-//        [self.limitView addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(userTipWithAttentionChannel:)]];
-//    }
-}
-
-//提示用户扫码进入
--(void)userTipWithAttentionChannel:(id)sender{
-//    PDUser *user = [PDUser sharedInstance];
-//    if (![user isLogin]) {
-//        [[NSNotificationCenter defaultCenter] postNotificationName:Channel_ReLogin object:nil];
-//
-//        return ;
-//    }
-////    NSString *tipMessage = [NSString stringWithFormat:@"你还没有加入频道\n请到该频道现场向店内工作人员或频道管理员索取二维码扫码加入\n%@",self.channelAddress];
-//    NSString *tipMessage = @"你还没有加入频道\n请到该频道现场向店内工作人员或频道管理员索取二维码扫码加入";
-//    SIAlertView *alertView = [[SIAlertView alloc] initWithTitle:@"提醒" andMessage:tipMessage andLocation:[NSString stringWithFormat:@"地址：%@",self.channelAddress]];
-//    alertView.backgroundStyle = SIAlertViewBackgroundStyleSolid;
-//
-//    [alertView addButtonWithTitle:@"我知道了"
-//                             type:SIAlertViewButtonTypeCancel
-//                          handler:^(SIAlertView *alert) {
-//                              [alert dismissAnimated:YES];
-//                              //                              [UIColor yellowColor]
-//                          }];
-//    [alertView addButtonWithTitle:@"我要现在扫码"
-//                             type:SIAlertViewButtonTypeDefault
-//                          handler:^(SIAlertView *alert) {
-//
-////                              [self openScan];
-//                              __weak QRCodeReaderViewController *readerVc = [QRCodeReaderViewController readerWithCancelButtonTitle:@"取消"];
-//                              readerVc.title = @"加入频道";
-//                              [readerVc setCompletionWithBlock:^(NSString *resultAsString) {
-//                                  [readerVc dismissViewControllerAnimated:YES completion:^{
-//                                      NSLog(@"%@", resultAsString);
-//                                      if (resultAsString != nil) {
-//                                          [[NSNotificationCenter defaultCenter] postNotificationName:NOTIFY_JOIN_CHANNEL object:resultAsString];
-//                                      }
-//                                  }];
-//                              }];
-//                              [[Utils currentViewController] presentViewController:readerVc animated:YES completion:nil];
-//                              [alert dismissAnimated:YES];
-//                          }];
-//    alertView.transitionStyle = SIAlertViewTransitionStyleBounce;
-//    [alertView show];
-
-//    [Utils showAlertWithTitle:@"提醒" detailText:tipMessage rightButtonTitle:@"我要现在扫码" handler:^(SIAlertView *alertView) {
-//        //        [self openScan];[[NSUserDefaults standardUserDefaults] setValue:@"1" forKey:@"QRCODE_SCAN_TYPE"];
-//        
-//    } isSameTopic:NO];
 }
 
 -(void)stopSpeechLimit{
@@ -139,25 +75,6 @@ typedef enum{
         self.limitView.hidden = YES;
     }
 }
-
--(void)setIsSameTopic:(BOOL)isSameTopic{
-//    _isSameTopic = isSameTopic;
-//    if (_isSameTopic) {
-//        _textView.backgroundColor = [UIColor hx_colorWithHexString:@"808080"];
-//        _inputView.backgroundColor = [UIColor hx_colorWithHexString:@"999999"];
-//        _toolKeyboard.backgroundColor = [UIColor blackColor];
-//        _toolKeyboard.isSameTopic = isSameTopic;
-//        [self.sendSoundButton setTitleColor:[UIColor pd_textWhiteColor] forState:UIControlStateNormal];
-//        [self.sendSoundButton setBackgroundImage:[UIImage imageWithColor:[UIColor hx_colorWithHexRGBAString:@"#727374"] size:self.sendSoundButton.size] forState:UIControlStateNormal];
-////        [self.sendSoundButton setChangeBackgroundImage:[UIImage imageWithColor:[UIColor hx_colorWithHexRGBAString:@"#727374"] size:self.sendSoundButton.size]];
-//    } else {
-//        _toolKeyboard.isSameTopic = isSameTopic;
-//        [self.sendSoundButton setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
-//        [self.sendSoundButton setBackgroundImage:[UIImage imageNamed:@"chat_voice_up.png"] forState:UIControlStateNormal];
-////        [self.sendSoundButton setChangeBackgroundImage:[UIImage imageNamed:@"chat_voice_down.png"]];
-//    }
-}
-                      
 
 -(void)setChannelID:(NSString *)channelID{
     _channelID = channelID;
@@ -192,25 +109,12 @@ typedef enum{
     self.textView.delegate = self;
     [self.emojiButton addTarget:self action:@selector(switchEmojiKeyboard) forControlEvents:UIControlEventTouchUpInside];
     [self.soundButton addTarget:self action:@selector(switchSoundKeyboard) forControlEvents:UIControlEventTouchUpInside];
-    
     self.currentStatus = InputStatus_default;
-    
-    
-    //  后台执行：
-    //    dispatch_async(dispatch_get_global_queue(0, 0), ^{
-    // something
-    
-    
-    
-    
-    
     //初始化extra键盘
     if (!_toolKeyboard) {
         RHChatToolKeyBoard *toolKB = [[RHChatToolKeyBoard alloc] init];
         toolKB.width = self.width;
         toolKB.height = 135;
-        toolKB.isSameTopic = self.isSameTopic;
-        toolKB.channelID=self.channelID;
         toolKB.backgroundColor = [UIColor whiteColor];
         [self addSubview:toolKB];
         self.toolKeyboard = toolKB;
@@ -236,68 +140,25 @@ typedef enum{
             make.height.mas_equalTo(216 + 44);
         }];
     }
-    //    });
-    //    [self startObserver];
 }
 
-/*
- -(RHChatToolKeyBoard *)toolKeyboard{
- if (!_toolKeyboard) {
- RHChatToolKeyBoard *toolKB = [[RHChatToolKeyBoard alloc] init];
- toolKB.width = self.width;
- toolKB.height = 216 + 44;
- toolKB.backgroundColor = [UIColor whiteColor];
- [self addSubview:toolKB];
- self.toolKeyboard = toolKB;
- 
- [_toolKeyboard mas_makeConstraints:^(MASConstraintMaker *make) {
- make.left.right.mas_equalTo(0);
- make.top.mas_equalTo(self.mas_top).offset(44);
- make.height.mas_equalTo(216 + 44);
- }];
- }
- 
- return _toolKeyboard;
- }
- 
- -(HWEmotionKeyboard *)emotionKeyboard
- {
- if (!_emotionKeyboard) {
- HWEmotionKeyboard *emotionKB = [[HWEmotionKeyboard alloc] init];
- // 键盘的宽度
- emotionKB.width = self.width;
- emotionKB.height = 216 + 44;;
- [self addSubview:emotionKB];
- self.emotionKeyboard = emotionKB;
- [self.emotionKeyboard mas_makeConstraints:^(MASConstraintMaker *make) {
- make.left.right.mas_equalTo(0);
- make.top.mas_equalTo(self.mas_top).offset(44);
- make.height.mas_equalTo(216 + 44);
- }];
- }
- return _emotionKeyboard;
- }
- */
 - (void)startObserver{
     [RHNotificationCenter removeObserver:self];
-    
     [RHNotificationCenter addObserver:self selector:@selector(willShowNotification:) name:UIKeyboardWillShowNotification object:nil];
-    //    [RHNotificationCenter addObserver:self selector:@selector(willChangeFrameNotification:) name:UIKeyboardWillChangeFrameNotification object:nil];
-    //    [RHNotificationCenter addObserver:self selector:@selector(willHideNotification:) name:UIKeyboardWillHideNotification object:nil];
     [RHNotificationCenter addObserver:self selector:@selector(emotionDidSelect:) name:HWEmotionDidSelectNotification object:nil];
     [RHNotificationCenter addObserver:self selector:@selector(sendMessageNotifyHandler) name:NOTIFY_EMOTION_SENDMESSAGE object:nil];
-    
     [RHNotificationCenter addObserver:self selector:@selector(closeKeyboard) name:NOTIFY_CLOSE_KEYBOARD object:nil];
 }
 
 - (void)stopObserver{
     [RHNotificationCenter removeObserver:self];
 }
+
 - (void)hideatsomeAndExtra{
     [self.atbtn setHidden:YES];
 }
+
 - (void)hideVoiceAndExtra{
-    
     [self updateConstraintsIfNeeded];
     [self.soundButton setHidden:YES];
     [self.addButton setHidden:YES];
@@ -322,28 +183,23 @@ typedef enum{
     }
     self.currentStatus = InputStatus_text;
     [self.emojiButton setImage:[UIImage imageNamed:@"default_icon"] forState:UIControlStateNormal];
-//    self.currentStatus = InputStatus_default;
 }
 
 - (BOOL)textView:(UITextView *)textView shouldChangeTextInRange:(NSRange)range replacementText:(NSString *)replacementText {
-    
     NSString *fulltext = [self.textView fullText];
     if ([replacementText isEqualToString:@"\n"]) {
         if ([fulltext isEqualToString:@""]) {
             return NO;
         }
-        
         if ([self.delegate respondsToSelector:@selector(sendMessage:)]) {
             [self.delegate sendMessage:fulltext];
         }
-        
         self.textView.text = @"";
         
         // 发送完消息 把inputView的高度改回来
         [self.textView mas_updateConstraints:^(MASConstraintMaker *make) {
             make.height.mas_equalTo(44);
         }];
-        
         return NO;
     }
     
@@ -363,92 +219,26 @@ typedef enum{
         [self.delegate mentionSomebody];
     }
 }
+
 - (void)appendContent:(NSString*)content{
     [self.textView insertText:content];
 }
 #pragma mark - 文本高度控制
-//-(void)textViewDidChange:(UITextView *)textView{
-//
-//    //获取ContentSize
-//    CGFloat contentH = textView.contentSize.height;
-//
-//    // 大于33，超过一行的高度/ 小于68 高度是在三行内
-//    if (contentH > 33 && contentH < 68 ) {
-//        //    self.inputViewHeightConstraint.constant = contentH + 18;
-//
-//        [self.inputView updateConstraintsIfNeeded];
-//        [self.inputView mas_updateConstraints:^(MASConstraintMaker *make) {
-//            make.height.mas_equalTo(contentH + 18);
-//        }];
-//        [UIView animateWithDuration:0.25 animations:^{
-//            [self.inputView layoutIfNeeded];
-//        }];
-//    }else if(contentH <= 33)
-//    {
-//
-//        [self.inputView updateConstraintsIfNeeded];
-//        [self.inputView mas_updateConstraints:^(MASConstraintMaker *make) {
-//            make.height.mas_equalTo(44);
-//        }];
-//        [UIView animateWithDuration:0.25 animations:^{
-//            [self.inputView layoutIfNeeded];
-//        }];
-//
-//    }
-//
-//    NSString *text = textView.text;
-//    text = [text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
-//    if(text.length > 0)
-//    {
-//        self.inputView.addButton.enabled = YES;
-//    }else
-//    {
-////        self.inputView.addButton.enabled = NO;
-//    }
-//    if(text.length > 140)
-//    {
-//        textView.text = [text substringToIndex:140];
-//    }
-//}
 
 #pragma mark -- 键盘切换
-
 - (void)switchSoundKeyboard{
     if (self.soundButton.selected) {
         self.currentStatus = InputStatus_sound;
         self.sendSoundButton.hidden = NO;
-//        self.soundButton.selected = YES;
         [self.textView resignFirstResponder];
         
         [self showKeyboardSound];
     } else {
         self.currentStatus = InputStatus_default;
         self.sendSoundButton.hidden = YES;
-//        self.soundButton.selected = NO;
         [self.textView becomeFirstResponder];
-        
-//        self.firleading.constant=41;;
-//        _atbtn.hidden=NO;
     }
     self.soundButton.selected = !self.soundButton.selected;
-//    if (self.currentStatus != InputStatus_sound) {
-//        
-//        self.currentStatus = InputStatus_sound;
-//        self.sendSoundButton.hidden = NO;
-//        self.soundButton.selected = YES;
-//        [self.textView resignFirstResponder];
-//        
-//        [self showKeyboardSound];
-//        
-//    }else{
-//        self.currentStatus = InputStatus_default;
-//        self.sendSoundButton.hidden = YES;
-//        self.soundButton.selected = NO;
-//        [self.textView becomeFirstResponder];
-//        
-//        self.firleading.constant=41;;
-//        _atbtn.hidden=NO;
-//    }
 }
 
 - (void)switchEmojiKeyboard{
@@ -474,11 +264,8 @@ typedef enum{
     self.soundButton.selected = NO;
     if (self.currentStatus != InputStatus_extra) {
         self.currentStatus = InputStatus_extra;
-        
         [self showKeyboardTools];
-    }else
-    {
-        
+    } else {
         self.currentStatus = InputStatus_default;
         [self.textView becomeFirstResponder];
     }
@@ -502,7 +289,6 @@ typedef enum{
         make.bottom.mas_equalTo(0);
     }];
     self.firleading.constant=10;
-//    _atbtn.hidden=YES;
     //开始刷新界面
     [UIView animateWithDuration:0.3f animations:^{
         [self layoutIfNeeded];
@@ -613,28 +399,6 @@ typedef enum{
     self.textView.placeholder = placeholder;
 }
 
-//键盘消息
-//-(void)willChangeFrameNotification:(NSNotification *)notification{
-//    self.currentStatus = InputStatus_default;
-//
-//    CGRect keyBoardF = [notification.userInfo[UIKeyboardFrameEndUserInfoKey] CGRectValue];
-//    NSDictionary *userInfo = notification.userInfo;
-//    // 动画的持续时间
-//    double duration = [userInfo[UIKeyboardAnimationDurationUserInfoKey] doubleValue];
-//    CGFloat height = -keyBoardF.size.height;
-//
-//    [self updateConstraintsIfNeeded];
-//    [self mas_updateConstraints:^(MASConstraintMaker *make) {
-//        make.bottom.mas_equalTo(height);
-//        make.height.mas_equalTo(44);
-//    }];
-//    [UIView animateWithDuration:duration animations:^{
-//        [self layoutIfNeeded];
-//
-//    }completion:^(BOOL finished) {
-//    }];
-//}
-
 -(void)willShowNotification:(NSNotification *)notification{
 //    self.currentStatus = InputStatus_default;
     CGRect keyBoardF = [notification.userInfo[UIKeyboardFrameEndUserInfoKey] CGRectValue];
@@ -656,36 +420,7 @@ typedef enum{
     }];
 }
 
-//-(void)willHideNotification:(NSNotification *)notification{
-//
-//    self.currentStatus = InputStatus_default;
-//
-//    CGRect keyBoardF = [notification.userInfo[UIKeyboardFrameEndUserInfoKey] CGRectValue];
-//    NSDictionary *userInfo = notification.userInfo;
-//    // 动画的持续时间
-//    double duration = [userInfo[UIKeyboardAnimationDurationUserInfoKey] doubleValue];
-//    CGFloat height = -keyBoardF.size.height;
-//
-//    [self updateConstraintsIfNeeded];
-//    [self mas_updateConstraints:^(MASConstraintMaker *make) {
-//        make.bottom.mas_equalTo(0);
-//        //        make.height.mas_equalTo(44);
-//    }];
-//
-//    [UIView animateWithDuration:duration animations:^{
-//        [self layoutIfNeeded];
-//
-//    }completion:^(BOOL finished) {
-//        [self mas_updateConstraints:^(MASConstraintMaker *make) {
-//            make.height.mas_equalTo(44);
-//        }];
-//    }];
-//}
-
 - (void)inputEmotion:(HWEmotion*)emotion{
-    //- (void)emotionDidSelect:(NSNotification *)notification
-    //{
-    //    HWEmotion *emotion = notification.userInfo[HWSelectEmotionKey];
     if (self.lengthLimit > 0 && self.textView.fullText.length + emotion.chs.length > self.lengthLimit) {
         [MBProgressHUD showError:[NSString stringWithFormat:@"最多可输入%ld个字符",self.lengthLimit]];
         return;
@@ -725,9 +460,4 @@ typedef enum{
         [self.delegate buttonAudioRecorder:audioRecorder didFinishRcordWithAudioInfo:audioInfo sendFlag:flag];
     }
 }
-//
-//- (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event
-//{
-//}
-
 @end

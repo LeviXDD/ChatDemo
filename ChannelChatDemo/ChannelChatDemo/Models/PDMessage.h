@@ -9,19 +9,6 @@
 #import <Foundation/Foundation.h>
 #import "PDChatServerDefs.h"
 #import "PDMessageDefine.h"
-//#import "PDRedPacketModel.h"
-//#import "PDPostGameModel.h"
-//@interface PDRedPacketModel : NSObject
-//@property(nonatomic, strong) NSString *sendRedPacketId;
-//@property(nonatomic, strong) NSString *sendPeople;
-//@property(nonatomic, strong) NSString *totalAmount;
-//@property(nonatomic, strong) NSString *description;
-//@property(nonatomic, strong) NSString *arFlag;
-//@property(nonatomic, strong) NSString *startTime;
-//@property(nonatomic, strong) NSString *channelId;
-//@property(nonatomic, strong) NSString *totalNum;
-//@property(nonatomic, strong) NSString *needSignin;
-//@end
 
 @interface PDMessage : NSObject
 //消息来源用户id

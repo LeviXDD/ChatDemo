@@ -10,7 +10,7 @@
 #import "PDMessage.h"
 #import "PDMsgChannelModel.h"
 @interface PDLocalMessageModel : NSObject
-// 后期重构把这个类可能要去掉--by:黎海涛
+// 后期重构把这个类可能要去掉
 
 // 是否是发送者
 @property (nonatomic, assign) BOOL isSender;

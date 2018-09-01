@@ -16,6 +16,7 @@
     }
     return self;
 }
+
 + (instancetype)chatMessageWithDict:(NSDictionary *)dict{
     return [[self alloc] initWithDict:dict];
 }
@@ -27,9 +28,4 @@
         return NO;
     }
 }
-
-
-
-
-
 @end

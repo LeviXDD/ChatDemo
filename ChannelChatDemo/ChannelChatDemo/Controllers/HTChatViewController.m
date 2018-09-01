@@ -27,7 +27,6 @@
 
 
 @interface HTChatViewController ()<HTBaseTableViewDelegate,InputViewDelegate,UITableViewDelegate,UITableViewDataSource>{
-    NSString *_userId;   //
 }
 #pragma mark - Class Variables
 @property(nonatomic, strong) HTBaseTableView *chatTableView;
@@ -55,29 +54,8 @@
     [self loadData];
 }
 
-- (void)viewWillAppear:(BOOL)animated
-{
-    [super viewWillAppear:animated];
-}
-
-- (void)viewDidAppear:(BOOL)animated
-{
-    [super viewDidAppear:animated];
-}
-
-- (void)viewWillDisappear:(BOOL)animated
-{
-    [super viewWillDisappear:animated];
-}
-
-- (void)viewDidDisappear:(BOOL)animated
-{
-    [super viewDidDisappear:animated];
-}
-
 //页面基本设置
 -(void)basicSettings{
-    _userId = @"xxxx";
     self.navigationItem.title = @"Jack 马";
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(receiveNewMessage:) name:NOTIFICATION_POST_NEW_MSG object:nil];
 }
@@ -95,23 +73,18 @@
         make.bottom.mas_equalTo(self.view.mas_bottom);
         make.height.mas_equalTo(44);
     }];
-    
     [self.chatTableView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.leading.trailing.equalTo(self.view);
         make.bottom.equalTo(self.chatPutView.mas_top);
     }];
 }
 
-
 // 创建页面内控件事件的地方
-- (void)createEvents{
-}
+- (void)createEvents{}
 
 // 如果页面加载过程需要读取数据, 则写在这个地方。
 - (void)loadData
-{
-    
-}
+{}
 
 #pragma mark - Target Methods
 /**
@@ -225,14 +198,11 @@
     }
     PDBaseChatMessageCell *cell    = [tableView dequeueReusableCellWithIdentifier:resuseIdentifier];
 //    cell.delegate = self;
-    cell.modelFrame                = modelFrame;
-//    cell.channelType = self.channelType;
+    cell.modelFrame = modelFrame;
     return cell;
 }
 
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    
-}
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {}
 
 #pragma mark - InputViewDelegate
 -(void)sendMessage:(NSString *)content{
@@ -269,12 +239,13 @@
     NSString *uuidStr = [uuid lowercaseString];
     return uuidStr;
 }
+
 #pragma mark - Privater Methods
 /*发送消息*/
 -(void)sendMessageWithMessageModel:(PDMessageFrame*)model{
     PDLocalMessageModel *msgModel = model.model;
     @weakify(self);
-    [HTMesseageSender sendMsgWithUserId:_userId message:msgModel success:^(BOOL success, PDLocalMessageModel *message) {
+    [HTMesseageSender sendMsgWithUserId:@"" message:msgModel success:^(BOOL success, PDLocalMessageModel *message) {
         @strongify(self);
         if (success) {
             msgModel.message.deliveryState = PDMessageDeliveryState_Delivered;
@@ -284,6 +255,7 @@
         
     }];
 }
+
 #pragma mark - Setter Getter Methods
 -(InputView *)chatPutView{
     if (!_chatPutView) {
@@ -303,12 +275,6 @@
         [_chatTableView addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tableViewDidTapped:)]];
         _chatTableView.backgroundColor = [UIColor whiteColor];
         [_chatTableView registerClass:[PDBaseChatMessageTextCell class] forCellReuseIdentifier:PD_CHATTYPE_TEXT];
-//        [_chatTableView registerClass:[PDBaseChatMessageVoiceCell class] forCellReuseIdentifier:PD_CHATTYPE_VOICE];
-//        [_chatTableView registerClass:[PDBaseChatMessagePictureCell class] forCellReuseIdentifier:PD_CHATTYPE_PIC];
-//        [_chatTableView registerClass:[PDBaseChatMessageVideoCell class] forCellReuseIdentifier:PD_CHATTYPE_VIDEO];
-//        [_chatTableView registerClass:[PDBaseChatMessageSystemCell class] forCellReuseIdentifier:PD_CHATTYPE_SYS];
-//        [_chatTableView registerClass:[PDRedPacketMessageCell class] forCellReuseIdentifier:PD_CHATTYPE_REDPACK];
-//        [_chatTableView registerClass:[PDNoticeBoardTableViewCell class] forCellReuseIdentifier:PDNoticeBoardTableViewCellIdentifier];
         _chatTableView.separatorStyle = UITableViewCellSeparatorStyleNone;
         _chatTableView.backgroundColor = [UIColor hx_colorWithHexString:@"#EEEEEE"];
     }

@@ -111,13 +111,9 @@ typedef NS_ENUM(NSInteger, PDChannelType) {
     PDChannelTypeSameTopic = 4,//同频频道
     PDChannelTypeLiveCircle = 5,  //生活圈
     PDChannelTypeSimCity = 6,  //小城故事频道
-    
     PDChannelTypeSimCityEntrance = 60  //小城故事入口
-    
-    
 };
 #pragma mark ------------------------------======---------------------------------------
-
 
 
 @interface PDMessageDefine : NSObject
