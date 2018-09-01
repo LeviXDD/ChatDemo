@@ -96,7 +96,6 @@
     for (int i = 0; i < self.chatSourceArr.count ; i ++) {
         PDMessageFrame *frameModel = self.chatSourceArr[i];
         PDLocalMessageModel *msgModel =  frameModel.model;
-//        msgModel.message.showTimeStr = self.chatTimeArr[i];
         frameModel.model = msgModel;
         self.chatSourceArr[i] = frameModel;
     }
@@ -107,7 +106,6 @@
             [self scrollToBottom];
         } else {
             CGSize oldSize = self.chatTableView.contentSize;
-//            CGPoint oldOffset = self.chatTableView.contentOffset;
             [self.chatTableView reloadData];
             CGSize newSize = self.chatTableView.contentSize;
             CGPoint newPoint = CGPointMake(0,  + newSize.height - oldSize.height - 40);
@@ -124,8 +122,6 @@
         yOffset = self.chatTableView.contentSize.height - self.chatTableView.bounds.size.height;
         [self.chatTableView setContentOffset:CGPointMake(0, self.chatTableView.contentSize.height) animated:YES];
     }
-    
-//    [self.chatTableView setContentOffset:CGPointMake(0, self.chatTableView.contentSize.height)];
 }
 
 -(void)tableViewDidTapped:(id)sender{

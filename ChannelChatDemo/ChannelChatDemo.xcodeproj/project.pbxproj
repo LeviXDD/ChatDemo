@@ -60,7 +60,6 @@
 		30724E341FC7CBA80084180A /* InputView.m in Sources */ = {isa = PBXBuildFile; fileRef = 30724E321FC7CBA80084180A /* InputView.m */; };
 		30724E351FC7CBA80084180A /* InputView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 30724E331FC7CBA80084180A /* InputView.xib */; };
 		30724E381FC7CCC20084180A /* ButtonAudioRecorder.m in Sources */ = {isa = PBXBuildFile; fileRef = 30724E361FC7CCC10084180A /* ButtonAudioRecorder.m */; };
-		30724E3F1FC7CCE30084180A /* RHChatToolKeyBoard.m in Sources */ = {isa = PBXBuildFile; fileRef = 30724E391FC7CCE20084180A /* RHChatToolKeyBoard.m */; };
 		30724E441FC7CEE70084180A /* NSString+FilePath.m in Sources */ = {isa = PBXBuildFile; fileRef = 30724E431FC7CEE70084180A /* NSString+FilePath.m */; };
 		30724E471FC7CF790084180A /* PDHeadImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 30724E461FC7CF790084180A /* PDHeadImageView.m */; };
 		30724E4A1FC7CFBD0084180A /* PDBaseChatMessageTextCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 30724E481FC7CFBC0084180A /* PDBaseChatMessageTextCell.m */; };
@@ -203,8 +202,6 @@
 		30724E331FC7CBA80084180A /* InputView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = InputView.xib; sourceTree = "<group>"; };
 		30724E361FC7CCC10084180A /* ButtonAudioRecorder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ButtonAudioRecorder.m; sourceTree = "<group>"; };
 		30724E371FC7CCC20084180A /* ButtonAudioRecorder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ButtonAudioRecorder.h; sourceTree = "<group>"; };
-		30724E391FC7CCE20084180A /* RHChatToolKeyBoard.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RHChatToolKeyBoard.m; sourceTree = "<group>"; };
-		30724E3B1FC7CCE30084180A /* RHChatToolKeyBoard.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RHChatToolKeyBoard.h; sourceTree = "<group>"; };
 		30724E421FC7CEE60084180A /* NSString+FilePath.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+FilePath.h"; sourceTree = "<group>"; };
 		30724E431FC7CEE70084180A /* NSString+FilePath.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+FilePath.m"; sourceTree = "<group>"; };
 		30724E451FC7CF780084180A /* PDHeadImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PDHeadImageView.h; sourceTree = "<group>"; };
@@ -369,8 +366,6 @@
 				30724E481FC7CFBC0084180A /* PDBaseChatMessageTextCell.m */,
 				30724E451FC7CF780084180A /* PDHeadImageView.h */,
 				30724E461FC7CF790084180A /* PDHeadImageView.m */,
-				30724E3B1FC7CCE30084180A /* RHChatToolKeyBoard.h */,
-				30724E391FC7CCE20084180A /* RHChatToolKeyBoard.m */,
 				30724E371FC7CCC20084180A /* ButtonAudioRecorder.h */,
 				30724E361FC7CCC10084180A /* ButtonAudioRecorder.m */,
 				30724E311FC7CBA70084180A /* InputView.h */,
@@ -829,7 +824,6 @@
 				30724E511FC7CFED0084180A /* KILabel.m in Sources */,
 				30724E441FC7CEE70084180A /* NSString+FilePath.m in Sources */,
 				30724DE91FC7C88D0084180A /* PDMsgChannelModel.m in Sources */,
-				30724E3F1FC7CCE30084180A /* RHChatToolKeyBoard.m in Sources */,
 				30724E251FC7C9C20084180A /* HWEmotionKeyboard.m in Sources */,
 				30724E731FC81EAC0084180A /* HTChatTableViewCell.m in Sources */,
 				30724DEF1FC7C8D30084180A /* ChatMessageModel.m in Sources */,

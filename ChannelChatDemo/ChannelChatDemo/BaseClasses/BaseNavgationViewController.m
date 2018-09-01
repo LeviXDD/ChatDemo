@@ -18,19 +18,6 @@
     [super viewDidLoad];
 }
 
-//-(void)setIsSameTopic:(BOOL)isSameTopic{
-//    _isSameTopic = isSameTopic;
-//    if (isSameTopic) {
-//        [self.navigationBar setTitleTextAttributes:@{NSFontAttributeName:[UIFont systemFontOfSize:18],NSForegroundColorAttributeName:[UIColor pd_textWhiteColor]}];
-//        self.navigationBar.barStyle = UIStatusBarStyleLightContent;
-//        [self.navigationBar setBarTintColor:[UIColor pd_commonBgGrayColor]];
-//        [self.navigationBar setTintColor:[UIColor blackColor]];
-//        [self.navigationBar setBackgroundImage:[UIImage imageWithColor:[UIColor pd_commonBgGrayColor]]
-//                                                                 forBarPosition:UIBarPositionAny
-//                                                                     barMetrics:UIBarMetricsDefault];
-//    }
-//}
-
 - (void)pushViewController:(UIViewController *)viewController animated:(BOOL)animated {
     if (self.viewControllers.count > 0) {
         viewController.hidesBottomBarWhenPushed = YES;

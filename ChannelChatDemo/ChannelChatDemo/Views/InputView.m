@@ -11,7 +11,6 @@
 #import "HWEmotionKeyboard.h"
 #import "UITextView+Extension.h"
 #import "HWEmotionTextView.h"
-#import "RHChatToolKeyBoard.h"
 #import "HWEmotion.h"
 #import "HWEmotionTool.h"
 #import "UIImage+GIF.h"
@@ -110,21 +109,6 @@ typedef enum{
     [self.emojiButton addTarget:self action:@selector(switchEmojiKeyboard) forControlEvents:UIControlEventTouchUpInside];
     [self.soundButton addTarget:self action:@selector(switchSoundKeyboard) forControlEvents:UIControlEventTouchUpInside];
     self.currentStatus = InputStatus_default;
-    //初始化extra键盘
-    if (!_toolKeyboard) {
-        RHChatToolKeyBoard *toolKB = [[RHChatToolKeyBoard alloc] init];
-        toolKB.width = self.width;
-        toolKB.height = 135;
-        toolKB.backgroundColor = [UIColor whiteColor];
-        [self addSubview:toolKB];
-        self.toolKeyboard = toolKB;
-        
-        [_toolKeyboard mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.left.right.mas_equalTo(0);
-            make.top.mas_equalTo(self.mas_top).offset(44);
-            make.height.mas_equalTo(216 + 44);
-        }];
-    }
     
     //初始化表情键盘
     if (!_emotionKeyboard) {
@@ -356,7 +340,6 @@ typedef enum{
         make.bottom.mas_equalTo(0);
         make.height.mas_equalTo(258 + 44);
     }];
-    [self bringSubviewToFront:self.toolKeyboard];
     
     //开始刷新界面
     [UIView animateWithDuration:0.3f animations:^{

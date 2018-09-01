@@ -10,7 +10,6 @@
 #import "HWEmotionTextView.h"
 #import "ButtonAudioRecorder.h"
 #import "HWEmotionKeyboard.h"
-#import "RHChatToolKeyBoard.h"
 
 @protocol InputViewDelegate <NSObject>
 @optional
@@ -28,7 +27,6 @@
 @property (weak, nonatomic) IBOutlet UIButton *emojiButton;
 @property (weak, nonatomic) IBOutlet UIButton *soundButton;
 @property (weak, nonatomic) IBOutlet ButtonAudioRecorder *sendSoundButton;
-@property (nonatomic,strong) RHChatToolKeyBoard *toolKeyboard;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *textViewHeightConstraint;
 @property (nonatomic,assign) NSInteger lengthLimit;
 @property(nonatomic,weak)IBOutlet UIButton *atbtn;
